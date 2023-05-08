@@ -1,6 +1,7 @@
 {
-  "page": "Next.js i18n exampleee uwu",
-  "page.home.head.meta.description": "Next.js i18n example - English",
-  "page.home.title": "Welcome to <b>Next.js i18n tutorial</b>",
-  "page.home.description": "You are currently viewing the homepage in English 🚀"
+  "aboutme": "Hola 👋, Mi nombre es Heriberto y soy Ingeniero de Software, con experiencia en diferentes proyectos con diferentes tecnologías y una gran pasión por la innovación. \nTengo el sueño de ayudar con mis habilidades a orientar a todo aquel que quiera adentrarse en el mundo de la tecnología.",
+  "myName": "CUBO",
+  "page": "Desarrollador frontend",
+  "test": "hello <italic>beautiful</italic> <bold>{{what}}</bold>",
+  "welcome": "Hola, yo soy"
 }

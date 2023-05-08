@@ -1,0 +1,10 @@
+.dark .dropdown-container {
+  .menu {
+    background-color: $background-cdark;
+    box-shadow: $d-shadow-modal;
+
+    p {
+      color: $text-cdark;
+    }
+  }
+}

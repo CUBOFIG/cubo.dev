@@ -1,8 +1,10 @@
+// next-i18next.config.js
+
 module.exports = {
   i18n: {
-    locale: "en",
     defaultLocale: "en",
-    locales: ["en", "es"],
+    locale: "en",
     localeDetection: false,
+    locales: ["en", "es"],
   },
 };

@@ -1,0 +1,20 @@
+.dark .hero {
+  &__information {
+
+    & > div > h1 {
+      color: $text-cdark !important;
+    }
+
+    p {
+      color: rgb(145, 142, 142);
+    }
+
+    .name-container {
+      background-color: $text-cdark;
+
+      .h1-one {
+        color: $background-cdark;
+      }
+    }
+  }
+}

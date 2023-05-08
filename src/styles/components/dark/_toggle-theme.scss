@@ -1,0 +1,9 @@
+.dark .toggle-theme {
+  background-color: $text-cdark;
+  box-shadow: 0px 5px 20px -10px #ffffff;
+
+  .toggle-inner {
+    background-color: $background-cdark;
+    margin-left: 1.25rem;
+  }
+}

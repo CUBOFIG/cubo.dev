@@ -1,0 +1,11 @@
+.dark .lenguage-selector {
+  &__dropdown-container > .dropdown-menu {
+    box-shadow: 0px 0px 4px -2px rgba(0, 0, 0, 0.5);
+    background-color: $background-cdark;
+  }
+
+  &__menu {
+    background-color: $background-cdark;
+    box-shadow: $d-shadow-modal;  
+  }
+}

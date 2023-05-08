@@ -1,0 +1,84 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 3rem;
+
+  &__image-logo {
+    border-radius: 50%;
+    height: 50%;
+    object-fit: cover;
+    width: 50%;
+    margin-top: 3rem;
+  }
+
+  &__information {
+    text-align: center;
+    margin-top: 1rem;
+    
+    & > div > h1 {
+      margin: 0;
+      font-size: 2rem;
+      margin: 0.5rem 0;
+    }
+
+    
+    p {
+      margin: 0;
+      margin-top: 0.8rem;
+      color: rgb(145, 142, 142);
+      font-size: 1.3rem;
+    }
+
+    .name-container {
+      display: grid;
+      grid-template-areas: 'soloyo';
+      cursor: context-menu;
+      background-color: #333131;
+      padding: 0 0.5rem;
+
+      h1 {
+        margin: 0;
+      }
+
+      .h1-one {
+        grid-area: soloyo;
+        color: white;
+        font-size: 6rem;
+        width: 100%;
+      }
+
+      .h1-two {
+        animation: glitch2 2.5s infinite;
+        color: #67f3da;
+        display: none;
+        font-size: 6rem;
+        grid-area: soloyo;
+      }
+    
+      .h1-three {
+        animation: glitch3 2.5s infinite;
+        color: #f16f6f;
+        display: none;
+        font-size: 6rem;
+        grid-area: soloyo;
+      }
+
+      &:hover {
+
+        h1-one {
+          animation: glitch1 2.5s infinite;
+        }
+        
+        .h1-two { 
+          display: block;
+        }
+  
+        .h1-three { 
+          display: block;
+        }
+      }
+    }
+  }
+}

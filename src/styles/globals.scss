@@ -1,14 +1,25 @@
 @import "utils/colors";
 @import "utils/variables";
 @import "variables.module.scss";
+@import "abstracts/mixins";
 
+//Normal-components
+@import "components/button-grid";
+@import "components/toggle-theme";
+@import "components/dropdown";
+@import "components/error";
+@import "components/experience";
 @import "components/header";
-@import "components/buttons/buttonGrid.module.scss";
-@import "components/fragments/experience";
+@import "components/lenguage-selector";
+@import "components/hero";
+@import "components/base-section";
 
-// @import "tailwindcss/base";
-// @import "tailwindcss/components";
-// @import "tailwindcss/utilities";
+//Dark-Mode-components
+@import "components/dark/header";
+@import "components/dark/lenguage-selector";
+@import "components/dark/dropdown";
+@import "components/dark/toggle-theme";
+@import "components/dark/hero"; 
 
 html,
 body {
@@ -25,13 +36,3 @@ a {
 * {
   box-sizing: border-box;
 }
-
-// @media (prefers-color-scheme: dark) {
-//   html {
-//     color-scheme: dark;
-//   }
-//   body {
-//     color: white;
-//     background: black;
-//   }
-// }

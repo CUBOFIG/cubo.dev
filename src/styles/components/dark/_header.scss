@@ -1,0 +1,24 @@
+
+.dark .header {
+  background-color: $text-color !important;
+
+  &__logo {
+    color: $text-cdark;
+  }
+
+  &__settings {
+    & > .dropdown-container > .dropdown-toggle {
+      color: $text-cdark !important;
+    }
+  }
+  
+  .dropdown-menu {
+    &::before {
+      z-index: -1;
+      transform: rotate(-135deg);
+      top: -4px;
+      border-color: #ffffff;
+      box-shadow: 1px 1px 4px -2px rgba(0, 0, 0, 0.4);
+    }
+  }
+}

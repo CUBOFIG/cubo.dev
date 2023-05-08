@@ -5,6 +5,25 @@
   padding-top: 2rem;
   background-color: $background-color;
   color: $text-color;
+  transition: all ease-in-out 0.3s;
+}
+
+.dark .container {
+  background-color: $background-cdark;
+  transition: all ease-in-out 0.3s;
+}
+
+.background-exit {
+  width: 100%;
+  background-color: rgba(82, 81, 81, 0.155);
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.dark .background-exit {
+  background-color: rgba(0, 0, 0, 0.33);
 }
 
 .title {
@@ -12,46 +31,6 @@
   font-family: 'Righteous';
 }
 
-.hero {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-  margin-bottom: 3rem;
-
-  &__image-logo {
-    border-radius: 50%;
-    height: 50%;
-    object-fit: cover;
-    width: 50%;
-    margin-top: 3rem;
-  }
-
-  &__information {
-    text-align: center;
-    margin-top: 1rem;
-    
-    h1 {
-      margin: 0;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    h1:nth-child(2) {
-      background-color: #333131;
-      color: white;
-      font-size: 6rem;
-      width: 100%;
-    }
-    
-    p {
-      margin: 0;
-      margin-top: 0.8rem;
-      color: rgb(145, 142, 142);
-      font-size: 1rem;
-    }
-  }
-}
 
 .about-me {
   display: flex;

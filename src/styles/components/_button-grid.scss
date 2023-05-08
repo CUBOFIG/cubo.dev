@@ -24,10 +24,10 @@
       --b: var(--background-hover);
   }
   &.without-text {
-      --background:#333131;
-      --background-hover: #131111;
-      --icon-color: #FFFFFF;
-      padding: 6px;
+    --background:#333131;
+    --background-hover: #131111;
+    --icon-color: #FFFFFF;
+    padding: 6px;
   }
   .icon {
       width: 24px;
@@ -246,4 +246,3 @@ html {
       box-sizing: inherit;
 }
 }
-

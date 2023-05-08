@@ -1,0 +1,22 @@
+.toggle-theme {
+  background-color: rgb(46, 46, 46);
+  border-radius: 1000px;
+  box-shadow: 0px 5px 20px -10px #000000;
+  cursor: pointer;
+  display: block;
+  height: max-content;
+  margin: auto 0;
+  margin-left: 1rem;
+  padding: 0.313rem;
+  transition: background-color 0.3s ease-in;
+  width: 3.125rem;
+
+  .toggle-inner {
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.6rem;
+    height: 0.938rem;
+    transition: margin-left 0.3s ease-in, background-color 0.3s ease-in;
+    width: 1.25rem;
+    margin-left: 0;
+  }
+}
