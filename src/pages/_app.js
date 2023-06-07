@@ -1,4 +1,4 @@
-import "../styles/globals.scss";
+import "../sass/main.scss";
 import { appWithTranslation } from "next-i18next";
 import { ThemeProvider } from "next-themes";
 

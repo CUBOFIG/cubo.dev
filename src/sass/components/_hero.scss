@@ -1,29 +1,38 @@
 .hero {
+  align-items: center;
   display: flex;
   flex-direction: column;
+  margin-bottom: 5rem;
   width: 100%;
-  align-items: center;
-  margin-bottom: 3rem;
+
+  @include respond-to('small') {
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
+  }
 
   &__image-logo {
     border-radius: 50%;
     height: 50%;
+    margin-top: 3rem;
     object-fit: cover;
     width: 50%;
-    margin-top: 3rem;
+
+    @include respond-to('small') {
+      width: 20%;
+    }
   }
 
   &__information {
     text-align: center;
     margin-top: 1rem;
-    
+
     & > div > h1 {
       margin: 0;
       font-size: 2rem;
       margin: 0.5rem 0;
     }
-
-    
+  
     p {
       margin: 0;
       margin-top: 0.8rem;
@@ -32,53 +41,55 @@
     }
 
     .name-container {
+      background-color: #333131;
+      cursor: context-menu;
       display: grid;
       grid-template-areas: 'soloyo';
-      cursor: context-menu;
-      background-color: #333131;
       padding: 0 0.5rem;
 
       h1 {
         margin: 0;
+        font-size: 5rem;
       }
 
       .h1-one {
         grid-area: soloyo;
         color: white;
-        font-size: 6rem;
         width: 100%;
       }
 
       .h1-two {
         animation: glitch2 2.5s infinite;
         color: #67f3da;
-        display: none;
-        font-size: 6rem;
-        grid-area: soloyo;
       }
     
       .h1-three {
         animation: glitch3 2.5s infinite;
         color: #f16f6f;
+      }
+
+      .h1-two, .h1-three { 
         display: none;
-        font-size: 6rem;
         grid-area: soloyo;
       }
 
       &:hover {
-
         h1-one {
           animation: glitch1 2.5s infinite;
         }
         
-        .h1-two { 
-          display: block;
-        }
-  
-        .h1-three { 
+        .h1-two, .h1-three { 
           display: block;
         }
       }
     }
+    
+    @include respond-to('small') {
+      margin-left: 5rem;
+    }
+  }
+
+  @include respond-to('small') {
+    flex-direction: row;
   }
 }

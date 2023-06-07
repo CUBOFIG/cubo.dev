@@ -1,7 +1,8 @@
+@import "base/reset";
 @import "utils/colors";
 @import "utils/variables";
-@import "variables.module.scss";
 @import "abstracts/mixins";
+@import "base/global";
 
 //Normal-components
 @import "components/button-grid";
@@ -13,6 +14,7 @@
 @import "components/lenguage-selector";
 @import "components/hero";
 @import "components/base-section";
+@import "components/scroll-button";
 
 //Dark-Mode-components
 @import "components/dark/header";
@@ -20,19 +22,8 @@
 @import "components/dark/dropdown";
 @import "components/dark/toggle-theme";
 @import "components/dark/hero"; 
+@import "components/dark/scroll-button";
+@import "components/dark/base-section";
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: "Source Sans Pro", sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
+//Pages
+@import "pages/home";

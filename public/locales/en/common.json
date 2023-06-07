@@ -1,6 +1,6 @@
 {
-  "aboutme": "Hello 👋, My name is Heriberto and I am a Software Engineer, with experience in different projects with different technologies and a great passion for innovation. \n I have the dream of helping with my skills to guide anyone who wants to enter the world of technology.",
-  "devstack": "This is my stack",
+  "aboutme": "Hello 👋, My name is <span>Heriberto</span> and I am a Software Engineer, with experience in different projects with different technologies and a great passion for innovation. I have the dream of helping with my skills to guide anyone who wants to enter the world of technology.",
+  "devstack": "My main technologies are part of the <span class='is-javascript'>Javascript</span> ecosystem. I currently have an advanced level with this programming language. I have experience with <span>React</span> and <span>Vue</span> due to their usage in different projects and the entire ecosystem surrounding these technologies. \nI have experience with the version control system <span>Git</span> and the platforms <span>Github</span> and <span>Gitlab</span>. Additionally, I have experience with platforms such as <span>Slack</span>, <span>Figma</span>, and <span>Trello</span>.",
   "myName": "CUBO",
   "page": "FrontEnd Developer",
   "test": "hello <italic>beautiful</italic> <bold>{{what}}</bold>",

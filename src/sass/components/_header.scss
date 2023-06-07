@@ -1,19 +1,28 @@
+@font-face {
+  font-family: 'mio';
+  src: url('../../../public/fonts/cube.ttf');
+}
+
 .header {
-  transition: all ease-in-out 0.3s;
+  align-items: center;
   background: $background-color;
   display: flex;
-  height: 3.125rem;
+  height: 4.5rem;
   justify-content: space-between;
-  position: fixed;
+  transition: all ease-in-out 0.3s;
   width: 100%;
+  
+  position: sticky;
+  top: 0;
+  z-index: 999;
 
   &__container {
-    max-width: 1300px;
-    padding-right: 30px;
-    padding-left: 30px;
-    display: flex;
     -webkit-box-pack: justify;
+    display: flex;
     justify-content: space-between;
+    max-width: 1200px;
+    padding-left: 30px;
+    padding-right: 30px;
     width: 100%;
 
     @include respond-to('small') {
@@ -32,6 +41,11 @@
     height: 3.125rem;
     justify-content: center;
     margin: 0;
+    font-family: 'mio';
+
+    @include respond-to('small') {
+      font-size: 2.5rem;
+    }
   }
 
   &__settings {
@@ -47,10 +61,6 @@
         animation:spin 4s linear infinite;
       }
 
-
-      @include respond-to('small') {
-        display: none;
-      }
     }
 
     @-moz-keyframes spin { 
@@ -74,10 +84,6 @@
 
     .settings-large{
       display: none;
-
-      @include respond-to('small') {
-        display: flex;
-      }
     }
 
   }

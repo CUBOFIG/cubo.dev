@@ -17,6 +17,7 @@
   transform: scale(var(--scale, 1)) translateZ(0);
   transition: transform .15s, background .4s;
   width: fit-content;
+	margin-top: 1.5rem;
   &:active {
       --scale: .95;
   }
