@@ -9,7 +9,7 @@ const ExperienceList = () => (
             <div>
               <h1>
                 {name}
-                <span> {current && "Current"}</span>
+                <span> {current && "Current 🔥"}</span>
               </h1>
             </div>
             <h3>{position}</h3>

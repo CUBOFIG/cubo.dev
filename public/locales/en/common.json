@@ -1,8 +1,11 @@
 {
   "aboutme": "Hello 👋, My name is <span>Heriberto</span> and I am a Software Engineer, with experience in different projects with different technologies and a great passion for innovation. I have the dream of helping with my skills to guide anyone who wants to enter the world of technology.",
-  "devstack": "My main technologies are part of the <span class='is-javascript'>Javascript</span> ecosystem. I currently have an advanced level with this programming language. I have experience with <span>React</span> and <span>Vue</span> due to their usage in different projects and the entire ecosystem surrounding these technologies. \nI have experience with the version control system <span>Git</span> and the platforms <span>Github</span> and <span>Gitlab</span>. Additionally, I have experience with platforms such as <span>Slack</span>, <span>Figma</span>, and <span>Trello</span>.",
+  "devstack": "My main technologies are part of the <span class='is-javascript'>Javascript</span> ecosystem. I currently have an advanced level with this programming language. I have experience with <span>React</span> and <span>Vue</span> due to their usage in different projects and the entire ecosystem surrounding these technologies. \nI have experience with the version control system <span>Git</span> and the platforms <span>Github</span> and <span>Gitlab</span>. Additionally, I have experience with platforms such as <span>Jira</span>, <span>Slack</span>, <span>Figma</span>, and <span>Trello</span>.",
   "myName": "CUBO",
   "page": "FrontEnd Developer",
   "test": "hello <italic>beautiful</italic> <bold>{{what}}</bold>",
-  "welcome": "Hi, I'm"
+  "welcome": "Hi, I'm",
+	"myexperience": "In the last three years, I have immersed myself in the exciting world of technological development. While it may seem like a short time, it has been filled with learnings, challenges, and innovative solutions. Next, I invite you to explore the projects I have tackled.",
+	"My": "My",
+	"Experience": "Experience"
 }

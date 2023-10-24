@@ -5,6 +5,7 @@ export { default as NextJSIcon } from "./nextjs-icon.svg";
 export { default as ReactIcon } from "./react-icon.png";
 export { default as UsaFlag } from "./usa-flag.svg";
 export { default as VueIcon } from "./vue-icon.png";
+export { default as Stop } from "./construccion.png";
 
 export { default as BootsrapIcon } from "./bootstrap-icon.png";
 export { default as BuefyIcon } from "./buefy-icon.png";
@@ -19,3 +20,5 @@ export { default as SassIcon } from "./sass-icon.png";
 export { default as SCIcon } from "./sc-icon.png";
 export { default as TrelloIcon } from "./trello-icon.svg";
 export { default as RamdaIcon } from "./ramda-icon.png";
+export { default as BitBucketIcon } from "./bitbucket-icon.png";
+export { default as JiraIcon } from "./jira-icon.png";

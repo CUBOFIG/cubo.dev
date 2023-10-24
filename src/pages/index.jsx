@@ -41,23 +41,24 @@ export default function Home() {
           />
           <BaseSection
             title={{ ft: "My", st: "Experience" }}
-            description="aboutme"
+            description="myexperience"
             content={ExperienceList}
           />
-          <BaseSection
+          {/* <BaseSection
             title={{ ft: "My", st: "Projects" }}
             description="aboutme"
-          />
-          <BaseSection title={{ st: "Contact Me" }} description="aboutme" />
+          /> */}
+          {/* <BaseSection title={{ st: "Contact Me" }} description="aboutme" />
           <div className="aports">
             <BaseSection title={{ st: "Aportaciones" }} description="aboutme" />
-          </div>
+          </div> */}
         </section>
         <ScrollButton />
       </main>
 
-      <footer>
-        <p>Made with 🌮 and Good Vibes 🍟</p>
+      <footer className="footer">
+        <p>Creado con un cafe y mucho amor</p>
+        <p className="header__logo">CUBO</p>
       </footer>
     </>
   );

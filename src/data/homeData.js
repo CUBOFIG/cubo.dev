@@ -15,6 +15,8 @@ import {
   SCIcon,
   TrelloIcon,
   RamdaIcon,
+  JiraIcon,
+  BitBucketIcon,
 } from "@/images";
 
 const homeData = [
@@ -96,6 +98,14 @@ export const listData = [
         icon: TrelloIcon,
         name: "trello",
       },
+      {
+        icon: JiraIcon,
+        name: "jira",
+      },
+      {
+        icon: BitBucketIcon,
+        name: "BitBucket",
+      },
     ],
   },
   {
@@ -135,27 +145,28 @@ export const experienceData = [
   {
     name: "Freelance - Punto de venta",
     position: "Front-End Developer",
-    description:
-      "Hola 👋, Mi nombre es Heriberto y soy Ingeniero de Software, con experiencia en diferentes proyectos con diferentes tecnologías y una gran pasión por la innovación. Tengo el sueño de ayudar con mis habilidades a orientar a todo aquel que quiera adentrarse en el mundo de la tecnología.",
+    description: "",
   },
   {
     name: "Wanabana.io",
     position: "Front-End Developer",
-    description:
-      "Hola 👋, Mi nombre es Heriberto y soy Ingeniero de Software, con experiencia en diferentes proyectos con diferentes tecnologías y una gran pasión por la innovación. Tengo el sueño de ayudar con mis habilidades a orientar a todo aquel que quiera adentrarse en el mundo de la tecnología.",
+    description: "",
   },
   {
     name: "Transcol",
     position: "Front-End Developer",
-    description:
-      "Realice la refactorización de este sistema de gestión de rutas de transporte público, la cual se encarga de mostrar las diferentes rutas en tiempo real de varios municipios del estado de Colima. \nEstuve encargado de refactorizar, desarrollar código en este sistema construido en Next.js, además de manipular y simplificar el estado global de todo el sistema el cual está desarrollado en Context. Además de la implementación de peticiones con el uso de websocket. \nTambién se aplicó el uso de React Leaft API para el desarrollo de un mapa interactivo.",
+    description: "",
     url: "transcol.com.mx",
   },
   {
     name: "HMH Sistemas",
+    position: "Team Leader and Front-End Developer",
+    description: "",
+  },
+  {
+    name: "Hospitales MAC",
     position: "Front-End Developer",
-    description:
-      "Hola 👋, Mi nombre es Heriberto y soy Ingeniero de Software, con experiencia en diferentes proyectos con diferentes tecnologías y una gran pasión por la innovación. Tengo el sueño de ayudar con mis habilidades a orientar a todo aquel que quiera adentrarse en el mundo de la tecnología.",
+    description: "",
     current: true,
   },
 ];

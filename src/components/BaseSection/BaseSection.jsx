@@ -18,7 +18,6 @@ const BaseSection = ({ description, title, content: Content }) => {
         className="base-section__description"
         dangerouslySetInnerHTML={{ __html: textTranslate }}
       />
-
       {Content && <Content />}
     </div>
   );

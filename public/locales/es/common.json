@@ -1,8 +1,11 @@
 {
   "aboutme": "Hola 👋, Mi nombre es <span>Heriberto</span> y soy Ingeniero de Software, con experiencia en diferentes proyectos con diferentes tecnologías y una gran pasión por la innovación. Tengo el sueño de ayudar con mis habilidades a orientar a todo aquel que quiera adentrarse en el mundo de la tecnología.",
-	"devstack": "Mis principales tecnologías son parte del ecosistema de <span class='is-javascript'>Javascript</span>, actualmente teniendo un nivel avanzado con este lenguaje de programación. Cuento con experiencia con <span>React</span> y <span>Vue</span> gracias a su uso en diferentes proyectos y con todo el ecosistema que rodea estas tecnologías. \nTengo experiencia con el manejador de versiones <span>Git</span> y las plataformas <span>Github</span> y <span>Gitlab</span>, de igual forma tengo experiencia en plataformas como <span>Slack</span>, <span>Figma</span> o <span>Trello</span>.",
+	"devstack": "Mis principales tecnologías son parte del ecosistema de <span class='is-javascript'>Javascript</span>, actualmente teniendo un nivel avanzado con este lenguaje de programación. Cuento con experiencia con <span>React</span> y <span>Vue</span> gracias a su uso en diferentes proyectos y con todo el ecosistema que rodea estas tecnologías. \nTengo experiencia con el manejador de versiones <span>Git</span> y las plataformas <span>Github</span> y <span>Gitlab</span>, de igual forma tengo experiencia en plataformas como <span>Jira</span>, <span>Slack</span>, <span>Figma</span> o <span>Trello</span>.",
 	"myName": "CUBO",
   "page": "Desarrollador frontend",
   "test": "hello <italic>beautiful</italic> <bold>{{what}}</bold>",
-  "welcome": "Hola, yo soy"
+  "welcome": "Hola, yo soy",
+	"myexperience": "En los últimos tres años, he sumergido mis manos en el apasionante mundo del desarrollo tecnológico. Aunque pueda parecer un tiempo breve, ha estado repleto de aprendizajes, retos y soluciones innovadoras. A continuación, te invito a explorar los proyectos que he ido superando.",
+	"My": "Mi",
+	"Experience": "Experiencia"
 }
