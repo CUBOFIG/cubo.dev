@@ -17,6 +17,8 @@ import {
   RamdaIcon,
   JiraIcon,
   BitBucketIcon,
+  Cubo,
+  favicon,
 } from "@/images";
 
 const homeData = [
@@ -129,13 +131,18 @@ export const listData = [
     title: "Soft Skills",
     elements: [
       {
-        name: "react",
+        icon: favicon,
+        name: "Communication",
       },
       {
-        name: "vue",
+        icon: favicon,
+
+        name: "Teamwork",
       },
       {
-        name: "ramda",
+        icon: favicon,
+
+        name: "Problem solving",
       },
     ],
   },

@@ -22,3 +22,4 @@ export { default as TrelloIcon } from "./trello-icon.svg";
 export { default as RamdaIcon } from "./ramda-icon.png";
 export { default as BitBucketIcon } from "./bitbucket-icon.png";
 export { default as JiraIcon } from "./jira-icon.png";
+export { default as favicon } from "../favicon.png";
