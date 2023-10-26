@@ -8,6 +8,7 @@ import {
 } from "@/components";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
+import SocialNetwork from "../components/SocialNetwork/SocialNetwork";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -34,6 +35,7 @@ export default function Home() {
             title={{ ft: "About", st: "Me" }}
             description="aboutme"
           />
+
           <BaseSection
             title={{ ft: "Tech", st: "Stack" }}
             description="devstack"
@@ -52,7 +54,10 @@ export default function Home() {
           <div className="aports">
             <BaseSection title={{ st: "Aportaciones" }} description="aboutme" />
           </div> */}
+          <BaseSection title={{ st: "Contact Me" }} />
+          <SocialNetwork />
         </section>
+
         <ScrollButton />
       </main>
 

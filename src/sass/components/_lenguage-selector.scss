@@ -3,7 +3,7 @@
     position: inherit;
     font-size: 1.5rem;
     margin-left: auto;
-  
+
     .dropdown-toggle {
       background-color: transparent;
       color: #000000;
@@ -12,31 +12,30 @@
       font-weight: 600;
       position: relative;
       transition: all ease-in-out 0.3s;
-  
+
       div {
         display: flex;
       }
-  
+
       label {
         cursor: pointer;
         width: 100%;
       }
     }
-  
+
     img {
       width: 30px;
       height: auto;
     }
-  
-    
+
     p {
       margin-right: 0.4rem !important;
 
-      @include respond-to('small') {
+      @include respond-to("small") {
         margin-right: 0 auto;
       }
     }
-  
+
     & > .dropdown-menu {
       width: 100%;
       border-radius: 10px;
@@ -47,7 +46,7 @@
       top: 100%;
       display: none;
       background-color: #7a1e1e;
-      z-index: 100
+      z-index: 100;
     }
   }
 

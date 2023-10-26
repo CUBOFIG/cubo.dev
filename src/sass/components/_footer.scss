@@ -1,0 +1,26 @@
+.footer {
+  height: 200px;
+  background-color: #333131;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+  font-size: 1rem !important;
+  color: rgb(145, 142, 142);
+
+  p {
+    margin: 0;
+    margin-right: 0.5rem;
+    color: rgb(247, 249, 250) !important;
+  }
+
+  .header__logo {
+    font-size: 1.5rem;
+    margin: 0;
+    height: auto;
+  }
+
+  transition: all ease-in-out 0.3s;
+}

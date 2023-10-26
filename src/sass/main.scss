@@ -15,15 +15,19 @@
 @import "components/hero";
 @import "components/base-section";
 @import "components/scroll-button";
+@import "components/network-section";
+@import "components/footer";
 
 //Dark-Mode-components
 @import "components/dark/header";
 @import "components/dark/lenguage-selector";
 @import "components/dark/dropdown";
 @import "components/dark/toggle-theme";
-@import "components/dark/hero"; 
+@import "components/dark/hero";
 @import "components/dark/scroll-button";
 @import "components/dark/base-section";
+@import "components/dark/footer";
+@import "components/dark/experience";
 
 //Pages
 @import "pages/home";

@@ -150,30 +150,45 @@ export const listData = [
 
 export const experienceData = [
   {
-    name: "Freelance - Punto de venta",
+    name: "Punto de venta",
     position: "Front-End Developer",
     description: "",
+    action: "inicia un nuevo proyecto Freelance de",
+    date: "Feb 2021",
   },
   {
     name: "Wanabana.io",
     position: "Front-End Developer",
     description: "",
+    action: "comienza a trabajar en",
+    date: "Nov 2021",
+  },
+  {
+    name: "HMH Sistemas",
+    position: "Front-End Developer",
+    description: "",
+    action: "comienza a trabajar en",
+    date: "Feb 2023",
   },
   {
     name: "Transcol",
     position: "Front-End Developer",
     description: "",
     url: "transcol.com.mx",
+    action: "inicia en un nuevo proyecto",
+    date: "Jun 2022",
   },
   {
     name: "HMH Sistemas",
-    position: "Team Leader and Front-End Developer",
     description: "",
+    action: "es promovido a Team Leader en",
+    date: "Feb 2023",
   },
   {
     name: "Hospitales MAC",
     position: "Front-End Developer",
     description: "",
     current: true,
+    date: "Jun 2023",
   },
 ];
