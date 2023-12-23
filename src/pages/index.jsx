@@ -29,8 +29,10 @@ export default function Home() {
 
       <main>
         <Header />
+
+        <Hero />
+
         <section className="container">
-          <Hero />
           <BaseSection
             title={{ ft: "About", st: "Me" }}
             description="aboutme"
@@ -61,7 +63,7 @@ export default function Home() {
         <ScrollButton />
       </main>
 
-      <footer className="footer">
+      <footer className="footer" id="footer">
         <p>Creado con un cafe y mucho amor</p>
         <p className="header__logo">CUBO</p>
       </footer>
