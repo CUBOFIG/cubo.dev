@@ -7,6 +7,18 @@
   padding-top: 4rem;
   padding-bottom: 4rem;
   justify-content: center;
+  position: relative;
+
+  .hero__blur {
+    animation: changeColorBackground 30s infinite;
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    left: 70%;
+    transform: translateX(-50%);
+    filter: blur(150px);
+    z-index: 0;
+  }
 
   .hero__container-information {
     width: 100%;
@@ -16,6 +28,7 @@
   }
 
   .hero__image-container {
+    z-index: 1000;
     width: 100%;
     flex: 1;
     margin: auto;
@@ -73,7 +86,7 @@
 
     p:nth-child(3) {
       margin-top: 2rem;
-      font-size: clamp(1.3rem, 2vmin, 2rem);
+      font-size: clamp(1.3rem, 2vmin, 24px);
       color: #80a4d3;
       animation: changeColor 30s infinite;
     }
@@ -116,6 +129,17 @@
 
       &:hover {
         h1-one {
+          animation: glitch1 2.5s infinite;
+        }
+
+        .h1-two,
+        .h1-three {
+          display: block;
+        }
+      }
+
+      &__animate {
+        .h1-one {
           animation: glitch1 2.5s infinite;
         }
 
@@ -178,8 +202,7 @@
     }
 
     .hero__image-logo {
-      width: 80%;
-      height: 100%;
+      width: 100%;
     }
 
     .name-container {
@@ -230,6 +253,27 @@
     }
     100% {
       color: #80a4d3;
+    }
+  }
+
+  @keyframes changeColorBackground {
+    0% {
+      background-color: #80a4d3;
+    }
+    20% {
+      background-color: #eebc3a;
+    }
+    40% {
+      background-color: #f36159;
+    }
+    60% {
+      background-color: #f693b4;
+    }
+    80% {
+      background-color: #65bcba;
+    }
+    100% {
+      background-color: #80a4d3;
     }
   }
 }

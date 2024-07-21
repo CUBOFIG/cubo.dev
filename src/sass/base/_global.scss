@@ -12,3 +12,7 @@ body {
   background-color: $background-cdark;
   transition: all ease-in-out 0.3s;
 }
+
+html {
+  scroll-behavior: smooth;
+}

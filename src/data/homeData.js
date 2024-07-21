@@ -17,8 +17,11 @@ import {
   RamdaIcon,
   JiraIcon,
   BitBucketIcon,
-  Cubo,
   favicon,
+  hmh,
+  wanabana,
+  mac,
+  arkon,
 } from "@/images";
 
 const homeData = [
@@ -150,45 +153,31 @@ export const listData = [
 
 export const experienceData = [
   {
-    name: "Punto de venta",
+    name: "Arkon Data",
     position: "Front-End Developer",
-    description: "",
-    action: "inicia un nuevo proyecto Freelance de",
-    date: "Feb 2021",
+    date: "Feb. 2024 - Current",
+    image: arkon,
+    current: true,
+  },
+  {
+    name: "Hospitales Mac",
+    position: "Front-End Developer",
+    description: "mac_description",
+    date: "Jul. 2023 - Feb. 2024",
+    image: mac,
+  },
+  {
+    name: "HMH Sistemas",
+    position: "Front-End Developer",
+    description: "hmh_description",
+    date: "Ene. 2022 - Jul. 2023",
+    image: hmh,
   },
   {
     name: "Wanabana.io",
     position: "Front-End Developer",
-    description: "",
-    action: "comienza a trabajar en",
-    date: "Nov 2021",
-  },
-  {
-    name: "HMH Sistemas",
-    position: "Front-End Developer",
-    description: "",
-    action: "comienza a trabajar en",
-    date: "Feb 2023",
-  },
-  {
-    name: "Transcol",
-    position: "Front-End Developer",
-    description: "",
-    url: "transcol.com.mx",
-    action: "inicia en un nuevo proyecto",
-    date: "Jun 2022",
-  },
-  {
-    name: "HMH Sistemas",
-    description: "",
-    action: "es promovido a Team Leader en",
-    date: "Feb 2023",
-  },
-  {
-    name: "Hospitales MAC",
-    position: "Front-End Developer",
-    description: "",
-    current: true,
-    date: "Jun 2023",
+    description: "wanabana_description",
+    date: "Nov. 2020 - Nov. 2021",
+    image: wanabana,
   },
 ];

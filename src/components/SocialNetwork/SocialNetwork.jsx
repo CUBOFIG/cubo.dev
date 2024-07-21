@@ -16,7 +16,7 @@ const SocialNetwork = () => {
   });
 
   useEffect(() => {
-    console.log(theme, document.documentElement.classList.contains("light"));
+    console.log("theme", theme);
 
     setTimeout(() => {
       if (document.documentElement.classList.contains("light")) {
@@ -52,12 +52,7 @@ const SocialNetwork = () => {
         />
       </a>
       <a href="https://instagram.com/cubo.io?igshid=MzMyNGUyNmU2YQ==">
-        <InstagramLogo
-          height="120"
-          width="120"
-          fill={colorMode?.color}
-          borderColor={colorMode?.borderColor}
-        />
+        <InstagramLogo height="120" width="120" fill={colorMode?.color} />
       </a>
       <a href="https://www.linkedin.com/in/heriberto-figueroa-michel-750517207/">
         <LinkedinLogo

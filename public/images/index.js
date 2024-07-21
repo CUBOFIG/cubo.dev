@@ -23,3 +23,9 @@ export { default as RamdaIcon } from "./ramda-icon.png";
 export { default as BitBucketIcon } from "./bitbucket-icon.png";
 export { default as JiraIcon } from "./jira-icon.png";
 export { default as favicon } from "../favicon.png";
+
+export { default as mac } from "./experience/mac.png";
+export { default as wanabana } from "./experience/wanabana.jpg";
+export { default as arkon } from "./experience/arkon.jpg";
+export { default as hmh } from "./experience/hmh.jpg";
+export { default as flame } from "./flame-icon.png";

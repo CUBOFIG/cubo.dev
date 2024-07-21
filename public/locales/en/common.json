@@ -5,7 +5,11 @@
   "page": "FrontEnd Developer",
   "test": "hello <italic>beautiful</italic> <bold>{{what}}</bold>",
   "welcome": "Hi, I'm",
-	"myexperience": "In the last three years, I have immersed myself in the exciting world of technological development. While it may seem like a short time, it has been filled with learnings, challenges, and innovative solutions. Next, I invite you to explore the projects I have tackled.",
-	"My": "My",
-	"Experience": "Experience"
+  "myexperience": "In the last three years, I have immersed myself in the exciting world of technological development. While it may seem like a short time, it has been filled with learnings, challenges, and innovative solutions. Next, I invite you to explore the projects I have tackled.",
+  "My": "My",
+  "Experience": "Experience",
+  "wanabana_description": "During my experience at wanabana.io, I developed components using React.js and Sass. I also participated in mentoring and took on the leadership of a small frontend team.",
+  "mac_description": "While working at Hospitales MAC, I was responsible for designing, developing, maintaining, and refactoring various components, including complete sophisticated forms. To achieve this, I integrated advanced technologies such as the React.js library, Redux, Material UI, among other technologies from the React ecosystem. I applied my UI/UX skills to create user interfaces that were visually appealing, highly functional, and specifically adapted to the needs of the hospital system. Additionally, I managed various databases using technologies like DBeaver and PostgreSQL. My approach ensured that the information was accurate, accessible, and secure.",
+  "hmh_description": "During my time at HMH SISTEMAS, I used Vue.js 2 and React.js to develop and refactor projects. I participated in the refactoring of the main HMH page. This process allowed me to strengthen skills such as the use of best practices, error detection and resolution, team collaboration, and project leadership.",
+  "my_description": "Web developer with experience in designing and developing web applications using various technologies and their ecosystems. Creating solutions, always one coffee at a time."
 }

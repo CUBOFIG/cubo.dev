@@ -60,9 +60,11 @@
     margin: 0;
     margin-top: 0.8rem;
     color: $text-color;
-    font-size: 1.25rem;
+    font-size: clamp(1.3rem, 2vmin, 24px);
+    font-family: "chocolate";
     line-height: 2.8rem;
     margin-bottom: 1rem;
+    font-weight: 300;
 
     span {
       color: #80a3d5;

@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Dropdown = ({ children, text, icon }) => {
   const [toggleSelect, setOpenSelect] = useState(false);
@@ -34,9 +35,19 @@ const Dropdown = ({ children, text, icon }) => {
           {text}
           {icon}
         </div>
-        <div className={hiddenContainer}>
-          <ul>{children}</ul>
-        </div>
+        <AnimatePresence>
+          {toggleSelect && (
+            <motion.div
+              className={hiddenContainer}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+            >
+              <ul>{children}</ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {toggleSelect && <div className="background-exit" onClick={openSelect} />}

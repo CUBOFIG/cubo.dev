@@ -11,7 +11,7 @@ export default function FourOhFour() {
           pathname: "/",
         }}
       >
-        <Image src={Miloco} alt="mi-loco-pal-home" />
+        <Image src={Miloco} alt="mi-loco-pal-home" priority={true} />
         <h1>PARA EL HOME MI PANA</h1>
       </Link>
     </div>

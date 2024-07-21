@@ -1,6 +1,7 @@
 import { IoMdSettings, IoMdDownload } from "react-icons/io";
 import { LenguageSelector, Dropdown } from "@/components";
 import { useTheme } from "next-themes";
+import { motion } from "framer-motion";
 import { LuConstruction } from "react-icons/lu";
 
 LuConstruction;
@@ -16,13 +17,6 @@ const Header = () => {
       <nav className="header">
         <div className="header__container">
           <h1 className="header__logo">CUBO</h1>
-
-          {/* <div className="d-flex align-items-center header__indication">
-            <LuConstruction />
-            <h2> Estamos en construccion</h2>
-            <LuConstruction />
-          </div> */}
-
           <div className="button-cv">
             <a href="/static/data/cv.pdf" download="Mi_CV.pdf">
               <button type="button">
@@ -48,14 +42,6 @@ const Header = () => {
           </div>
         </div>
       </nav>
-
-      {/* <div className="indication-mobile">
-        <div>
-          <LuConstruction />
-          <h2> Estamos en construccion</h2>
-          <LuConstruction />
-        </div>
-      </div> */}
     </>
   );
 };

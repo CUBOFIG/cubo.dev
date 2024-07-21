@@ -1,14 +1,15 @@
-import {
-  BaseSection,
-  Header,
-  Hero,
-  ScrollButton,
-  TechStack,
-  ExperienceList,
-} from "@/components";
+import dynamic from "next/dynamic";
+import { BaseSection, Header, Hero, ScrollButton } from "@/components";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
-import SocialNetwork from "../components/SocialNetwork/SocialNetwork";
+
+const TechStack = dynamic(() => import("@/components/TechStack/TechStack"));
+const ExperienceList = dynamic(() =>
+  import("@/components/ExperienceList/ExperienceList")
+);
+const SocialNetwork = dynamic(() =>
+  import("../components/SocialNetwork/SocialNetwork")
+);
 
 export async function getStaticProps({ locale }) {
   return {
@@ -29,15 +30,12 @@ export default function Home() {
 
       <main>
         <Header />
-
         <Hero />
-
         <section className="container">
           <BaseSection
             title={{ ft: "About", st: "Me" }}
             description="aboutme"
           />
-
           <BaseSection
             title={{ ft: "Tech", st: "Stack" }}
             description="devstack"
@@ -48,14 +46,6 @@ export default function Home() {
             description="myexperience"
             content={ExperienceList}
           />
-          {/* <BaseSection
-            title={{ ft: "My", st: "Projects" }}
-            description="aboutme"
-          /> */}
-          {/* <BaseSection title={{ st: "Contact Me" }} description="aboutme" />
-          <div className="aports">
-            <BaseSection title={{ st: "Aportaciones" }} description="aboutme" />
-          </div> */}
           <BaseSection title={{ st: "Contact Me" }} />
           <SocialNetwork />
         </section>
