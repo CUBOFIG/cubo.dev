@@ -1,22 +1,12 @@
+import React from "react";
 import {
-  ReactIcon,
   VueIcon,
-  NextJSIcon,
-  BootsrapIcon,
-  BuefyIcon,
   FigmaIcon,
   FormikIcon,
-  GithubIcon,
-  GitIcon,
   GitlabIcon,
   LeafletIcon,
-  MaterialUIIcon,
-  SassIcon,
   SCIcon,
-  TrelloIcon,
   RamdaIcon,
-  JiraIcon,
-  BitBucketIcon,
   favicon,
   hmh,
   wanabana,
@@ -24,18 +14,18 @@ import {
   arkon,
 } from "@/images";
 
-const homeData = [
-  {
-    nombre: "Pepito Conejo",
-    edad: 25,
-    "carnet de conducir": true,
-  },
-  {
-    nombre: "Ana Barberá",
-    edad: 90,
-    "carnet de conducir": false,
-  },
-];
+import {
+  FaBitbucket as BitBucketIcon,
+  FaJira as JiraIcon,
+  FaTrello as TrelloIcon,
+  FaSass as SassIcon,
+  FaReact as ReactIcon,
+  FaBootstrap as BootstrapIcon,
+  FaGithub as GithubIcon,
+  FaGitAlt as GitIcon,
+} from "react-icons/fa";
+import { SiBuefy as BuefyIcon, SiMui as MaterialUIIcon } from "react-icons/si";
+import { RiNextjsFill as NextJSIcon } from "react-icons/ri";
 
 export const listData = [
   {
@@ -43,15 +33,17 @@ export const listData = [
     elements: [
       {
         name: "react",
-        icon: ReactIcon,
+        icon: <ReactIcon className="icon_react" />,
+        isIcon: true,
       },
       {
         name: "vue",
         icon: VueIcon,
       },
       {
-        icon: NextJSIcon,
+        icon: <NextJSIcon className="icon_next" />,
         name: "next.js",
+        isIcon: true,
       },
     ],
   },
@@ -59,24 +51,28 @@ export const listData = [
     title: "Style Frameworks & Libraries",
     elements: [
       {
-        icon: SassIcon,
+        icon: <SassIcon className="icon_sass" />,
         name: "sass",
+        isIcon: true,
       },
       {
-        icon: BootsrapIcon,
+        icon: <BootstrapIcon className="icon_bootstrap" />,
         name: "bootstrap",
+        isIcon: true,
       },
       {
         icon: SCIcon,
         name: "style Components",
       },
       {
-        icon: MaterialUIIcon,
+        icon: <MaterialUIIcon className="icon_material" />,
         name: "material UI",
+        isIcon: true,
       },
       {
-        icon: BuefyIcon,
+        icon: <BuefyIcon className="icon_buefy" />,
         name: "buefy",
+        isIcon: true,
       },
     ],
   },
@@ -88,28 +84,33 @@ export const listData = [
         name: "figma",
       },
       {
-        icon: GitIcon,
+        icon: <GitIcon className="icon_git" />,
         name: "git",
+        isIcon: true,
       },
       {
-        icon: GithubIcon,
+        icon: <GithubIcon className="icon_github" />,
         name: "github",
+        isIcon: true,
       },
       {
         icon: GitlabIcon,
         name: "gitlab",
       },
       {
-        icon: TrelloIcon,
+        icon: <TrelloIcon className="icon_trello" />,
         name: "trello",
+        isIcon: true,
       },
       {
-        icon: JiraIcon,
+        icon: <JiraIcon className="icon_jira" />,
         name: "jira",
+        isIcon: true,
       },
       {
-        icon: BitBucketIcon,
+        icon: <BitBucketIcon className="icon_bitbucket" />,
         name: "BitBucket",
+        isIcon: true,
       },
     ],
   },

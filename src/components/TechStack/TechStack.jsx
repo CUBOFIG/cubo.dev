@@ -8,11 +8,9 @@ const TechStack = () => (
         <h3>{title}</h3>
         <hr />
         <ul>
-          {elements.map(({ name, icon }, index) => (
+          {elements.map(({ name, icon, isIcon }, index) => (
             <li key={`element-${index}`} className={`is-${name}`}>
-              {icon && (
-                <Image className="icon" src={icon} alt={`icon-tech${index}`} />
-              )}
+              {icon && <>{isIcon ? icon : <Image src={icon} alt={name} />}</>}
               <p>{name}</p>
             </li>
           ))}

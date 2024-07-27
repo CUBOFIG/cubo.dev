@@ -6,7 +6,6 @@ import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { TbPointFilled } from "react-icons/tb";
 import { useTranslation } from "next-i18next";
 import { FaFire } from "react-icons/fa";
-import Particles from "react-particles";
 
 const ExperienceList = () => {
   const [open, setOpen] = useState(null);
@@ -44,7 +43,12 @@ const ExperienceList = () => {
                 onClick={() => onHandleOpen()}
               >
                 <div className="company__details d-flex">
-                  <Image src={image} alt={name} className="chat-logo" />
+                  <Image
+                    src={image}
+                    alt={name}
+                    className="chat-logo"
+                    priority
+                  />
                   <div className="d-flex flex-direction-column">
                     <div className="textos">
                       <strong>{`${name}${!position ? "." : ""}`}</strong>
