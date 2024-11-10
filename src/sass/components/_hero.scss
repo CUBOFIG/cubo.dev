@@ -8,6 +8,11 @@
   padding-bottom: 4rem;
   justify-content: center;
   position: relative;
+  background-repeat: no-repeat;
+  background-image: url("../../../public/images/dots.svg"),
+    url("../../../public/images/dots.svg");
+  background-position: 30px 100%, calc(100% - 30px) 10%;
+  background-size: 100px 100px, 100px 100px;
 
   .hero__blur {
     animation: changeColorBackground 30s infinite;
@@ -212,6 +217,8 @@
 
   @include respond-to("small") {
     flex-direction: row;
+    background-size: auto, auto;
+    background-position: 30px 100%, calc(100% - 30px) 20%;
   }
 
   @include respond-to("large") {

@@ -1,20 +1,17 @@
 import { UsaFlag, MexFlag } from "@/images";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "next-i18next";
 import classNames from "classnames";
 import Image from "next/image";
 
 const LenguageSelector = () => {
   const { i18n } = useTranslation();
-  const [language, setLanguage] = useState(i18n.language);
-  const [toggleSelect, setOpenSelect] = useState(false);
-
-  const openSelect = () => {
-    setOpenSelect((prevState) => !prevState);
-  };
-
   const router = useRouter();
+  const [language, setLanguage] = useState(i18n.language);
+  const [toggleSelect, setToggleSelect] = useState(false);
+
+  const openSelect = () => setToggleSelect((prev) => !prev);
 
   const changeLang = () => {
     const currentLanguage = switchLanguage();
@@ -24,7 +21,7 @@ const LenguageSelector = () => {
     });
 
     setLanguage(currentLanguage);
-    setOpenSelect((prevState) => !prevState);
+    setToggleSelect((prevState) => !prevState);
   };
 
   const switchLanguage = () => {
@@ -43,11 +40,19 @@ const LenguageSelector = () => {
       : { "lenguage-selector__menu-hidden": true }),
   });
 
+  useEffect(() => {
+    const handleClosed = () => setToggleSelect(false);
+
+    window.addEventListener("closed", handleClosed);
+
+    return () => window.removeEventListener("closed", handleClosed);
+  }, []);
+
   return (
     <div className="lenguage-selector">
       <div className="lenguage-selector__dropdown-container">
         <div className="dropdown-toggle" onClick={openSelect}>
-          <p> {language}</p>
+          <p>{language}</p>
           <Image src={switchFlag()} alt="language" />
         </div>
         <div className={hiddenContainer}>

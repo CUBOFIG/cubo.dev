@@ -1,7 +1,6 @@
 import { IoMdSettings, IoMdDownload } from "react-icons/io";
 import { LenguageSelector, Dropdown } from "@/components";
 import { useTheme } from "next-themes";
-import { motion } from "framer-motion";
 import { LuConstruction } from "react-icons/lu";
 
 LuConstruction;
@@ -32,13 +31,6 @@ const Header = () => {
                 <div className="toggle-inner" />
               </div>
             </Dropdown>
-
-            <div className="settings-large">
-              <div className="toggle-theme" onClick={toggleTheme}>
-                <div className="toggle-inner" />
-              </div>
-              <LenguageSelector />
-            </div>
           </div>
         </div>
       </nav>

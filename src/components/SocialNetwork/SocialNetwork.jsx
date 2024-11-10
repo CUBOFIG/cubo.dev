@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   TwitterLogo,
   GitHubLogo,
@@ -16,8 +16,6 @@ const SocialNetwork = () => {
   });
 
   useEffect(() => {
-    console.log("theme", theme);
-
     setTimeout(() => {
       if (document.documentElement.classList.contains("light")) {
         setColorMode({

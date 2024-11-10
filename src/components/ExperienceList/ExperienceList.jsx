@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { experienceData } from "@/data/homeData";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import Image from "next/image";
@@ -14,15 +14,20 @@ const ExperienceList = () => {
   const [isActive, setIsActive] = useState(false);
   const controls = useAnimation();
 
-  const handleClick = () => {
-    setIsActive(!isActive);
+  useEffect(() => {
+    let interval;
 
-    controls.start({
-      scale: [1, 1.2, 1],
-      opacity: [1, 0.5, 1],
-      transition: { duration: 0.6 },
-    });
-  };
+    interval = setInterval(() => {
+      setIsActive((prev) => !prev);
+      controls.start({
+        scale: [1, 1.2, 1],
+        opacity: [1, 0.5, 1],
+        transition: { duration: 0.6 },
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [controls]);
 
   return (
     <div className="experience">
@@ -30,9 +35,8 @@ const ExperienceList = () => {
         {experienceData.map(
           ({ name, position, description, current, date, image }, index) => {
             const onHandleOpen = () => {
-              if (current) {
-                return handleClick();
-              }
+              if (current) return;
+
               open === index ? setOpen(null) : setOpen(index);
             };
 
@@ -68,11 +72,7 @@ const ExperienceList = () => {
                         justifyContent: "center",
                       }}
                     >
-                      <FaFire
-                        className="image-current"
-                        size={50}
-                        onClick={handleClick}
-                      />
+                      <FaFire className="image-current" size={50} />
                       {isActive && (
                         <div
                           className="flame-effect"
