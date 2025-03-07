@@ -7,6 +7,7 @@ export default function FourOhFour() {
     <div className="error">
       <h2>404 - Page Not Found</h2>
       <Link
+        aria-label="Home"
         href={{
           pathname: "/",
         }}

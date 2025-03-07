@@ -17,10 +17,11 @@ const ButtonGrid = () => {
     const element = document
       .querySelectorAll(".grid-list")
       .forEach((button) => button.addEventListener("click", toggle));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <button className="grid-list without-text" ref={ref}>
+    <button className="grid-list without-text" ref={ref} name="grid-list">
       <div className="icon">
         <div className="dots">
           <i></i>

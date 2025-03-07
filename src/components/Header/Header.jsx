@@ -17,8 +17,12 @@ const Header = () => {
         <div className="header__container">
           <h1 className="header__logo">CUBO</h1>
           <div className="button-cv">
-            <a href="/static/data/cv.pdf" download="Mi_CV.pdf">
-              <button type="button">
+            <a
+              href="/static/data/cv.pdf"
+              download="Mi_CV.pdf"
+              aria-label="Download CV"
+            >
+              <button type="button" name="download-cv" aria-label="Download CV">
                 <IoMdDownload />
               </button>
             </a>

@@ -5,12 +5,14 @@ const TechStack = () => (
   <div className="experience-list">
     {listData.map(({ title, elements }, index) => (
       <div className="list-container" key={`list-${index}`}>
-        <h3>{title}</h3>
+        <h2>{title}</h2>
         <hr />
         <ul>
           {elements.map(({ name, icon, isIcon }, index) => (
             <li key={`element-${index}`} className={`is-${name}`}>
-              {icon && <>{isIcon ? icon : <Image src={icon} alt={name} />}</>}
+              {icon && (
+                <>{isIcon ? icon : <Image src={icon} alt={`icon-${name}`} />}</>
+              )}
               <p>{name}</p>
             </li>
           ))}

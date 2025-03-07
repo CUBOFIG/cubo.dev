@@ -41,6 +41,8 @@ const ScrollButton = () => {
           onClick={() => scroll.scrollToTop({ duration: 100, smooth: true })}
           className="scroll-button"
           id="scroll-button"
+          name="scroll-button"
+          aria-label="scroll to top"
         >
           <HiArrowUp size={30} />
         </button>

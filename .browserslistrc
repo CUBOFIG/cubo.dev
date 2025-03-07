@@ -1,0 +1,5 @@
+# Support only for modern browsers
+> 0.5% # Browsers used by more than 0.5% of global users
+last 2 versions # Last 2 versions of each browser
+not dead # Excludes obsolete browsers
+not ie <= 11 # No support for IE11

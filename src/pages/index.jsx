@@ -25,7 +25,7 @@ export default function Home() {
       <Head>
         <title>cubo.dev</title>
         <meta name="description" content="frontend developer" />
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/favicon.png" arial-label="favicon" />
       </Head>
 
       <main>
