@@ -43,6 +43,7 @@
     padding: 1.2rem 0.5rem;
     border-bottom: 1px solid #e0e0e0;
     cursor: pointer;
+    user-select: none;
 
     &__icons-open {
       margin: auto 0;

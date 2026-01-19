@@ -11,6 +11,8 @@
 
     h1 {
       margin: 0 0.5rem 0 0;
+      user-select: none;
+      outline: none;
     }
 
     div {
@@ -87,8 +89,9 @@
     object-fit: cover;
   }
 
-  .contt > h1 {
+  .cont-title > h1 {
     margin-right: 0;
-    cursor: pointer;
+    user-select: none;
+    outline: none;
   }
 }

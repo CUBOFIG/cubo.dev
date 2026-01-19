@@ -2,12 +2,6 @@
   margin-top: 4rem;
 }
 
-body {
-  background-color: $background-color;
-  color: $text-color;
-  transition: all ease-in-out 0.3s;
-}
-
 .dark body {
   background-color: $background-cdark;
   transition: all ease-in-out 0.3s;
@@ -15,4 +9,25 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: $background-color;
+  color: $text-color;
+  transition: all ease-in-out 0.3s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.page-container {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }

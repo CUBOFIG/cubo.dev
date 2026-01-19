@@ -21,13 +21,12 @@ export async function getStaticProps({ locale }) {
 
 export default function Home() {
   return (
-    <>
+    <div class="page-container">
       <Head>
         <title>cubo.dev</title>
         <meta name="description" content="frontend developer" />
         <link rel="icon" href="/favicon.png" arial-label="favicon" />
       </Head>
-
       <main>
         <Header />
         <Hero />
@@ -52,11 +51,10 @@ export default function Home() {
 
         <ScrollButton />
       </main>
-
       <footer className="footer" id="footer">
         <p>Creado con un cafe y mucho amor</p>
         <p className="header__logo">CUBO</p>
       </footer>
-    </>
+    </div>
   );
 }
