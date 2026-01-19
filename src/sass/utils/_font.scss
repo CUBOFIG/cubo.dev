@@ -1,21 +1,25 @@
 @font-face {
   font-family: "chocolate";
   src: url("../../../public/fonts/Arimo.ttf");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "mio";
   src: url("../../../public/fonts/cube.ttf");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "0";
   src: url("../../../public/fonts/Funkturm.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "1";
   src: url("../../../public/fonts/Arimo.ttf");
+  font-display: swap;
 
   //  src: url("../../../public/fonts/Rota-Text.otf") format("truetype");
 }
