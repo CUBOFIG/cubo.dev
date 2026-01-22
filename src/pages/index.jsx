@@ -4,11 +4,11 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 
 const TechStack = dynamic(() => import("@/components/TechStack/TechStack"));
-const ExperienceList = dynamic(() =>
-  import("@/components/ExperienceList/ExperienceList")
+const ExperienceList = dynamic(
+  () => import("@/components/ExperienceList/ExperienceList"),
 );
-const SocialNetwork = dynamic(() =>
-  import("../components/SocialNetwork/SocialNetwork")
+const SocialNetwork = dynamic(
+  () => import("../components/SocialNetwork/SocialNetwork"),
 );
 
 export async function getStaticProps({ locale }) {
@@ -28,7 +28,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" arial-label="favicon" />
       </Head>
       <main>
-        <Header />
         <Hero />
         <section className="container">
           <BaseSection

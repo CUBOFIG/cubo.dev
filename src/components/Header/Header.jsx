@@ -2,6 +2,8 @@ import { IoMdSettings, IoMdDownload } from "react-icons/io";
 import { LenguageSelector, Dropdown } from "@/components";
 import { useTheme } from "next-themes";
 import { LuConstruction } from "react-icons/lu";
+import { memo } from "react";
+import BlogButton from "./BlogButton";
 
 LuConstruction;
 const Header = () => {
@@ -15,7 +17,14 @@ const Header = () => {
     <>
       <nav className="header">
         <div className="header__container">
-          <h1 className="header__logo">CUBO</h1>
+          <h1 className="header__logo">
+            <a href="/" aria-label="Go Home">
+              CUBO
+            </a>
+          </h1>
+
+          <BlogButton />
+
           <div className="button-cv">
             <a
               href="/static/data/cv.pdf"
@@ -42,4 +51,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default memo(Header);
