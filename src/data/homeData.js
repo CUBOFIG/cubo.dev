@@ -24,8 +24,15 @@ import {
   FaGithub as GithubIcon,
   FaGitAlt as GitIcon,
 } from "react-icons/fa";
-import { SiBuefy as BuefyIcon, SiMui as MaterialUIIcon } from "react-icons/si";
+import {
+  SiBuefy as BuefyIcon,
+  SiMui as MaterialUIIcon,
+  SiBun as BunIcon,
+  SiDocker as DockerIcon,
+  SiWebpack as RsbuildIcon,
+} from "react-icons/si";
 import { RiNextjsFill as NextJSIcon } from "react-icons/ri";
+import { VscSettings as FliptIcon } from "react-icons/vsc";
 
 export const listData = [
   {
@@ -43,6 +50,16 @@ export const listData = [
       {
         icon: <NextJSIcon className="icon_next" />,
         name: "next.js",
+        isIcon: true,
+      },
+      {
+        icon: <BunIcon className="icon_bun" />,
+        name: "bun",
+        isIcon: true,
+      },
+      {
+        icon: <RsbuildIcon className="icon_rsbuild" />,
+        name: "rsbuild",
         isIcon: true,
       },
     ],
@@ -112,6 +129,16 @@ export const listData = [
         name: "BitBucket",
         isIcon: true,
       },
+      {
+        icon: <DockerIcon className="icon_docker" />,
+        name: "docker",
+        isIcon: true,
+      },
+      {
+        icon: <FliptIcon className="icon_flipt" />,
+        name: "flipt",
+        isIcon: true,
+      },
     ],
   },
   {
@@ -145,8 +172,11 @@ export const listData = [
       },
       {
         icon: favicon,
-
         name: "Problem solving",
+      },
+      {
+        icon: favicon,
+        name: "Leadership",
       },
     ],
   },

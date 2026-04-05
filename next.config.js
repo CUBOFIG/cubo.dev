@@ -4,9 +4,12 @@ const { i18n } = require("./next-i18next.config");
 
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
+  turbopack: {
+    root: __dirname,
+  },
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
+    silenceDeprecations: ["import", "global-builtin"],
   },
   i18n,
 };

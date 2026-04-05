@@ -21,7 +21,7 @@ export async function getStaticProps({ locale }) {
 
 export default function Home() {
   return (
-    <div class="page-container">
+    <div className="page-container">
       <Head>
         <title>cubo.dev</title>
         <meta name="description" content="frontend developer" />

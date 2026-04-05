@@ -1,13 +1,48 @@
+// ─── Brand ───────────────────────────────────────────────────────────────────
+$color-primary:   #8d1111;   // red — headings, accents
+$color-secondary: #80a3d5;   // blue — links, highlights, active tabs
+$color-accent:    #fbac43;   // amber — CTA, badges
+$color-pink:      #f693b4;   // pink — span highlights in descriptions
+
+// ─── Neutrals ─────────────────────────────────────────────────────────────────
 $background-color: rgb(247, 249, 250);
 $background-gradient: linear-gradient(
   180deg,
   rgba(247, 249, 250, 0.478) 57%,
   rgba(237, 237, 237, 0.478) 81%
 );
-$color-primary: #8d1111;
-$color-secondary: #80a3d5;
-$text-color: #333131; //#4f4a4a
+$text-color:       #333131;  // primary text
+$text-muted:       rgb(145, 142, 142); // secondary/muted text
+$border-color:     rgba(0, 0, 0, 0.08);
 
-//dark-mode-colors
+// ─── Dark mode ────────────────────────────────────────────────────────────────
 $background-cdark: #333131;
-$text-cdark: rgb(247, 249, 250);
+$text-cdark:       rgb(247, 249, 250);
+
+// ─── Tech icon colors ─────────────────────────────────────────────────────────
+$icon-react:      #61dafb;
+$icon-sass:       #d587ae;
+$icon-git:        #f34f29;
+$icon-bootstrap:  #7957d5;
+$icon-buefy:      #7957d5;
+$icon-material:   #00b0ff;
+$icon-trello:     #0079bf;
+$icon-jira:       #0052cc;
+$icon-bitbucket:  #205081;
+$icon-docker:     #2496ed;
+$icon-bun:        #fbac43;
+$icon-flipt:      #6366f1;
+$icon-rsbuild:    #8dd6f9;
+
+// ─── Glitch / animation colors ────────────────────────────────────────────────
+$glitch-cyan:  #67f3da;
+$glitch-red:   #f16f6f;
+
+// ─── Blog card palette ────────────────────────────────────────────────────────
+$blog-card-1: #e8a87c;
+$blog-card-2: #5bbfbf;
+$blog-card-3: #d96860;
+$blog-card-4: #b07890;
+$blog-card-5: #3db8a8;
+$blog-card-6: #606070;
+$blog-card-7: #e8a040;

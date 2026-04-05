@@ -9,6 +9,7 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 html,
@@ -20,6 +21,12 @@ body {
   color: $text-color;
   transition: all ease-in-out 0.3s;
   -webkit-tap-highlight-color: transparent;
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
 }
 
 .page-container {
