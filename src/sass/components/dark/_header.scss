@@ -12,6 +12,37 @@
     }
   }
   
+  .slime {
+    background: #fff;
+
+    &::before,
+    &::after {
+      background: #fff;
+      z-index: -1;
+    }
+  }
+
+  .slime__eye {
+    background: #333131;
+  }
+
+  .kiubit-bubble {
+    background: #fff;
+    color: #333131;
+  }
+
+  .kiubit-bubble__text {
+    color: #333131;
+  }
+
+  .kiubit-bubble__heart {
+    color: #333131;
+  }
+
+  .kiubit-bubble__icon svg {
+    color: #333131;
+  }
+
   .dropdown-menu {
     &::before {
       z-index: -1;

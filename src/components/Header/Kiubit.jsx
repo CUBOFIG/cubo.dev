@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { memo, useRef, useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 
 // Modos del slime
 const MODE = {
@@ -10,8 +11,8 @@ const MODE = {
 
 const DIALOGS = ["Soy Kiubit 👋", "Ven al blog ✍️", "¿Qué tal? 🤓"];
 
-const SpeechBubble = ({ children }) => (
-  <div className="kiubit-bubble">
+const SpeechBubble = ({ children, forceLeft }) => (
+  <div className={`kiubit-bubble${forceLeft ? " kiubit-bubble--left" : ""}`}>
     <span className="kiubit-bubble__text">{children}</span>
     <span className="kiubit-bubble__arrow" />
   </div>
@@ -19,6 +20,8 @@ const SpeechBubble = ({ children }) => (
 
 const Slime = () => {
   const router = useRouter();
+  const { theme, setTheme } = useTheme();
+  const isBlog = router.pathname.startsWith("/blog");
   const eyeLeftRef = useRef(null);
   const eyeRightRef = useRef(null);
   const slimeRef = useRef(null);
@@ -143,11 +146,25 @@ const Slime = () => {
     <span
       className={`slime${mode === MODE.SLEEPING ? " slime--sleeping" : ""}`}
       ref={slimeRef}
-      onClick={() => router.push("/blog")}
-      role="link"
+      onClick={() => {
+        if (isBlog) {
+          setTheme(theme === "light" ? "dark" : "light");
+        } else {
+          router.push("/blog");
+        }
+      }}
+      role="button"
       tabIndex={0}
-      aria-label="Go to Blog"
-      onKeyDown={(e) => e.key === "Enter" && router.push("/blog")}
+      aria-label={isBlog ? "Toggle theme" : "Go to Blog"}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          if (isBlog) {
+            setTheme(theme === "light" ? "dark" : "light");
+          } else {
+            router.push("/blog");
+          }
+        }
+      }}
       onMouseEnter={() => {
         setIsHovered(true);
         const msg = DIALOGS[Math.floor(Math.random() * DIALOGS.length)];
@@ -161,7 +178,7 @@ const Slime = () => {
     >
       <span ref={eyeLeftRef} className={eyeClass} />
       <span ref={eyeRightRef} className={eyeClass} />
-      {dialog && <SpeechBubble>{dialog}</SpeechBubble>}
+      {dialog && <SpeechBubble forceLeft={isBlog}>{dialog}</SpeechBubble>}
       {mode === MODE.SLEEPING && (
         <span className="slime__zzz" aria-hidden="true">
           <span className="slime__z">z</span>
@@ -173,11 +190,11 @@ const Slime = () => {
   );
 };
 
-const BlogButton = () => (
+const Kiubit = () => (
   <div className="header__blog-wrapper">
     <Slime />
   </div>
 );
 
 
-export default memo(BlogButton);
+export default memo(Kiubit);

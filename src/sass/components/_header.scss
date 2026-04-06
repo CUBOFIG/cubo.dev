@@ -93,27 +93,15 @@
       // Desktop: right
       right: auto;
       left: calc(100% + 10px);
-      animation: kiubit-pop-right 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      animation: kiubit-pop-right 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)
+        forwards;
     }
 
-    &__arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      border: 6px solid transparent;
-
-      // Mobile: arrow points right
-      right: -10px;
-      border-left-color: #333131;
-      border-right: none;
-
-      @include respond-to("small") {
-        // Desktop: arrow points left
-        right: auto;
-        left: -10px;
-        border-left: none;
-        border-right-color: #333131;
-      }
+    &--left,
+    &--left#{&} {
+      right: calc(100% + 10px);
+      left: auto;
+      animation: kiubit-pop-left 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
     }
 
     &__text {
@@ -151,13 +139,25 @@
   }
 
   @keyframes kiubit-pop-left {
-    0%   { opacity: 0; transform: translateY(-50%) translateX(6px) scale(0.8); }
-    100% { opacity: 1; transform: translateY(-50%) translateX(0) scale(1); }
+    0% {
+      opacity: 0;
+      transform: translateY(-50%) translateX(6px) scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0) scale(1);
+    }
   }
 
   @keyframes kiubit-pop-right {
-    0%   { opacity: 0; transform: translateY(-50%) translateX(-6px) scale(0.8); }
-    100% { opacity: 1; transform: translateY(-50%) translateX(0) scale(1); }
+    0% {
+      opacity: 0;
+      transform: translateY(-50%) translateX(-6px) scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0) scale(1);
+    }
   }
 
   .slime--sleeping {
