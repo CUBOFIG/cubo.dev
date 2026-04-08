@@ -31,18 +31,6 @@ const Header = () => {
 
           {!isBlog && (
             <>
-              <div className="button-cv">
-                <a
-                  href="/static/data/cv.pdf"
-                  download="Mi_CV.pdf"
-                  aria-label="Download CV"
-                >
-                  <button type="button" name="download-cv" aria-label="Download CV">
-                    <IoMdDownload />
-                  </button>
-                </a>
-              </div>
-
               <div className="header__settings">
                 <Dropdown icon={<IoMdSettings />}>
                   <LenguageSelector />

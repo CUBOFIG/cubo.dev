@@ -1,15 +1,18 @@
 {
-  "aboutme": "Hello 👋, My name is <span class='is-typescript'>Heriberto</span> and I am a Software Engineer, with experience in different projects with different technologies and a great passion for innovation. I have the dream of helping with my skills to guide anyone who wants to enter the world of technology.",
-  "devstack": "My main technologies are part of the <span class='is-javascript'>Javascript</span> and <span class='is-typescript'>Typescript</span> ecosystem. I currently have an advanced level with both programming languages. I have experience with <span>React</span> and <span>Vue</span> due to their usage in different projects and the entire ecosystem surrounding these technologies. \nI have experience with the version control system <span>Git</span> and the platforms <span>Github</span> and <span>Gitlab</span>. Additionally, I have experience with platforms such as <span>Jira</span>, <span>Slack</span>, <span>Figma</span>, and <span>Trello</span>.",
+  "aboutme": "Hello 👋, my name is <span class='is-typescript'>Heriberto</span> and I'm a Software Engineer with experience across diverse projects and technologies, and a strong passion for innovation. I dream of using my skills to guide anyone stepping into the world of technology.",
+  "devstack": "My main technologies belong to the <span class='is-javascript'>Javascript</span> and <span class='is-typescript'>Typescript</span> ecosystem, and I'm proficient in both languages. I have experience with <span>React</span> and <span>Vue</span> through multiple projects and their surrounding ecosystems. \nI work with the <span>Git</span> version control system along with <span>Github</span> and <span>Gitlab</span>. I also use platforms like <span>Jira</span>, <span>Slack</span>, <span>Figma</span> and <span>Trello</span> on a daily basis.",
   "myName": "CUBO",
   "page": "FrontEnd Developer",
-  "test": "hello <italic>beautiful</italic> <bold>{{what}}</bold>",
   "welcome": "Hi, I'm",
-  "myexperience": "In the last three years, I have immersed myself in the exciting world of technological development. While it may seem like a short time, it has been filled with learnings, challenges, and innovative solutions. Next, I invite you to explore the projects I have tackled.",
+  "myexperience": "Over the last five years, I've dived into the world of software development. While it may seem like a short time, it has been filled with learnings, challenges, and innovative solutions. Below, I invite you to explore the projects I've taken on.",
   "My": "My",
   "Experience": "Experience",
-  "wanabana_description": "During my experience at Wanabana.io, I developed components using React.js and Sass. I also participated in mentoring and took on the leadership of a small frontend team.",
-  "mac_description": "While working at Hospitales Mac, I was responsible for designing, developing, maintaining, and refactoring various components, including complete sophisticated forms. To achieve this, I integrated advanced technologies such as the React.js library, Redux, Material UI, among other technologies from the React ecosystem. I applied my UI/UX skills to create user interfaces that were visually appealing, highly functional, and specifically adapted to the needs of the hospital system. Additionally, I managed various databases using technologies like DBeaver and PostgreSQL. My approach ensured that the information was accurate, accessible, and secure.",
-  "hmh_description": "During my time at HMH Sistemas, I used Vue.js 2 and React.js to develop and refactor projects. I participated in the refactoring of the main HMH page. This process allowed me to strengthen skills such as the use of best practices, error detection and resolution, team collaboration, and project leadership.",
-  "my_description": "Web developer with experience in designing and developing web applications using various technologies and their ecosystems. Creating solutions, always one coffee at a time."
+  "wanabana_description": "At Wanabana.io, I built components using React.js and Sass. I also took part in mentoring and led a small frontend team.",
+  "mac_description": "At Hospitales Mac, I was responsible for designing, developing, maintaining, and refactoring various components, including full, complex forms. I worked with React, Redux, and Material UI, among other tools from the React ecosystem. I applied my UI/UX skills to create interfaces that were visually appealing, highly functional, and tailored to the needs of the hospital system. I also managed several databases using tools like DBeaver and PostgreSQL, ensuring data accuracy, accessibility, and security.",
+  "hmh_description": "At HMH Sistemas, I used Vue.js 2 and React.js to develop and refactor projects. I took part in the refactor of the main HMH page, strengthening best practices, debugging, teamwork, and project leadership.",
+  "my_description": "Web developer with experience in designing and developing web applications using various technologies and their ecosystems. Creating solutions, always one coffee at a time.",
+  "download_cv": "Download CV",
+  "contact_success": "Message sent successfully.",
+  "contact_error_generic": "Error sending the message.",
+  "contact_error_network": "Connection error. Please try again."
 }

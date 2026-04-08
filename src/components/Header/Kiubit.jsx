@@ -28,6 +28,12 @@ const Slime = () => {
   const frameRef = useRef(null);
   const sleepTimerRef = useRef(null);
   const blinkTimerRef = useRef(null);
+  const eyeRectsRef = useRef({ left: null, right: null });
+
+  const updateEyeRects = useCallback(() => {
+    eyeRectsRef.current.left = eyeLeftRef.current?.getBoundingClientRect() ?? null;
+    eyeRectsRef.current.right = eyeRightRef.current?.getBoundingClientRect() ?? null;
+  }, []);
 
   const [mode, setMode] = useState(MODE.FOLLOW);
   const [isBlinking, setIsBlinking] = useState(false);
@@ -57,37 +63,47 @@ const Slime = () => {
     }, 10000);
   }, []);
 
-  // Seguimiento del mouse
-  const moveEyes = useCallback((e) => {
-    resetSleepTimer();
-    if (modeRef.current !== MODE.FOLLOW) return;
-    if (frameRef.current) cancelAnimationFrame(frameRef.current);
+  // Seguimiento del mouse — usa rects cacheados (no fuerza reflow en cada movimiento)
+  const moveEyes = useCallback(
+    (e) => {
+      resetSleepTimer();
+      if (modeRef.current !== MODE.FOLLOW) return;
+      if (frameRef.current) cancelAnimationFrame(frameRef.current);
 
-    frameRef.current = requestAnimationFrame(() => {
-      [eyeLeftRef, eyeRightRef].forEach((ref) => {
-        if (!ref.current) return;
-        const eye = ref.current;
-        const rect = eye.getBoundingClientRect();
-        const cx = rect.left + rect.width / 2;
-        const cy = rect.top + rect.height / 2;
-        const dx = e.clientX - cx;
-        const dy = e.clientY - cy;
-        const angle = Math.atan2(dy, dx);
-        const dist = Math.min(Math.hypot(dx, dy), 3);
-        eye.style.transform = `translate(${Math.cos(angle) * dist}px, ${Math.sin(angle) * dist}px)`;
+      frameRef.current = requestAnimationFrame(() => {
+        const pairs = [
+          [eyeLeftRef.current, eyeRectsRef.current.left],
+          [eyeRightRef.current, eyeRectsRef.current.right],
+        ];
+        for (const [eye, rect] of pairs) {
+          if (!eye || !rect) continue;
+          const cx = rect.left + rect.width / 2;
+          const cy = rect.top + rect.height / 2;
+          const dx = e.clientX - cx;
+          const dy = e.clientY - cy;
+          const angle = Math.atan2(dy, dx);
+          const dist = Math.min(Math.hypot(dx, dy), 3);
+          eye.style.transform = `translate(${Math.cos(angle) * dist}px, ${Math.sin(angle) * dist}px)`;
+        }
       });
-    });
-  }, [resetSleepTimer]);
+    },
+    [resetSleepTimer],
+  );
 
   useEffect(() => {
+    updateEyeRects();
     window.addEventListener("mousemove", moveEyes);
+    window.addEventListener("resize", updateEyeRects);
+    window.addEventListener("scroll", updateEyeRects, { passive: true });
     resetSleepTimer();
     return () => {
       window.removeEventListener("mousemove", moveEyes);
+      window.removeEventListener("resize", updateEyeRects);
+      window.removeEventListener("scroll", updateEyeRects);
       if (frameRef.current) cancelAnimationFrame(frameRef.current);
       if (sleepTimerRef.current) clearTimeout(sleepTimerRef.current);
     };
-  }, [moveEyes, resetSleepTimer]);
+  }, [moveEyes, resetSleepTimer, updateEyeRects]);
 
   // Parpadeo — en sleep parpadea muy lento y pesado
   // Escuchar evento de TechStack
@@ -105,7 +121,7 @@ const Slime = () => {
             )}
           </span>
         </>,
-        3500
+        3500,
       );
     };
     window.addEventListener("kiubit-dialog", handler);
@@ -195,6 +211,5 @@ const Kiubit = () => (
     <Slime />
   </div>
 );
-
 
 export default memo(Kiubit);

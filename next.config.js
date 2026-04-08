@@ -11,6 +11,19 @@ const nextConfig = {
     includePaths: [path.join(__dirname, "styles")],
     silenceDeprecations: ["import", "global-builtin"],
   },
+  experimental: {
+    optimizePackageImports: [
+      "react-icons/fa",
+      "react-icons/si",
+      "react-icons/fi",
+      "react-icons/ri",
+      "react-icons/vsc",
+      "react-icons/hi",
+      "react-icons/io",
+      "react-icons/lu",
+      "react-icons/tb",
+    ],
+  },
   i18n,
 };
 

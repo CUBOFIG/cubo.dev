@@ -576,3 +576,69 @@
     margin: 0;
   }
 }
+
+// ── Dark mode ─────────────────────────────────────────
+.dark .blog {
+  .slime-post-content {
+    background: $background-cdark;
+    color: $text-cdark;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+
+    h1, h2, h3 {
+      color: $text-cdark;
+    }
+
+    code {
+      background: rgba(255, 255, 255, 0.08);
+      color: $text-cdark;
+    }
+
+    pre {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    blockquote {
+      color: rgba(247, 249, 250, 0.6);
+    }
+
+    .next-slime {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: #fff;
+
+      &__kiubit {
+        background: #fff;
+
+        &::before,
+        &::after {
+          background: #fff;
+        }
+
+        span {
+          background: #333131;
+        }
+      }
+
+      &__badge {
+        background: #fff;
+        color: #333131;
+      }
+
+      &__label {
+        color: rgba(247, 249, 250, 0.5);
+      }
+
+      &__title {
+        color: $text-cdark;
+      }
+    }
+
+    .cubo-signature {
+      border-top-color: rgba(255, 255, 255, 0.15);
+
+      &__name {
+        background: #fff;
+        color: #333131;
+      }
+    }
+  }
+}

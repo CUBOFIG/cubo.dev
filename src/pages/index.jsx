@@ -10,6 +10,9 @@ const ExperienceList = dynamic(
 const SocialNetwork = dynamic(
   () => import("../components/SocialNetwork/SocialNetwork"),
 );
+const ContactForm = dynamic(
+  () => import("@/components/ContactForm/ContactForm"),
+);
 
 export async function getStaticProps({ locale }) {
   return {
@@ -44,7 +47,7 @@ export default function Home() {
             description="myexperience"
             content={ExperienceList}
           />
-          <BaseSection title={{ st: "Contact Me" }} />
+          <BaseSection title={{ st: "Contact Me" }} content={ContactForm} />
           <SocialNetwork />
         </section>
 

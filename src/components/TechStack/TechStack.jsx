@@ -15,14 +15,16 @@ import {
   SiMui as MaterialUIIcon,
   SiBun as BunIcon,
   SiDocker as DockerIcon,
-  SiWebpack as RsbuildIcon,
   SiStorybook as StorybookIcon,
   SiVitest as VitestIcon,
   SiReactrouter as ReactRouterIcon,
   SiClaude as ClaudeIcon,
 } from "react-icons/si";
 import { RiNextjsFill as NextJSIcon } from "react-icons/ri";
-import { VscSettings as FliptIcon, VscBeaker as PlaywrightIcon } from "react-icons/vsc";
+import {
+  VscSettings as FliptIcon,
+  VscBeaker as PlaywrightIcon,
+} from "react-icons/vsc";
 import {
   VueIcon,
   FigmaIcon,
@@ -53,7 +55,11 @@ const CATEGORIES = [
       },
       { name: "Bun", icon: <BunIcon className="icon_bun" />, isIcon: true },
       { name: "Rsbuild", icon: rsbuildLogo, isIcon: false },
-      { name: "React Router", icon: <ReactRouterIcon className="icon_reactrouter" />, isIcon: true },
+      {
+        name: "React Router",
+        icon: <ReactRouterIcon className="icon_reactrouter" />,
+        isIcon: true,
+      },
     ],
   },
   {
@@ -112,8 +118,16 @@ const CATEGORIES = [
         icon: <FliptIcon className="icon_flipt" />,
         isIcon: true,
       },
-      { name: "Storybook", icon: <StorybookIcon className="icon_storybook" />, isIcon: true },
-      { name: "Claude Code", icon: <ClaudeIcon className="icon_claude" />, isIcon: true },
+      {
+        name: "Storybook",
+        icon: <StorybookIcon className="icon_storybook" />,
+        isIcon: true,
+      },
+      {
+        name: "Claude Code",
+        icon: <ClaudeIcon className="icon_claude" />,
+        isIcon: true,
+      },
     ],
   },
   {
@@ -123,8 +137,16 @@ const CATEGORIES = [
       { name: "Formik + Yup", icon: FormikIcon, isIcon: false },
       { name: "Leaflet", icon: LeafletIcon, isIcon: false },
       { name: "Ramda", icon: RamdaIcon, isIcon: false },
-      { name: "Playwright", icon: <PlaywrightIcon className="icon_playwright" />, isIcon: true },
-      { name: "Vitest", icon: <VitestIcon className="icon_vitest" />, isIcon: true },
+      {
+        name: "Playwright",
+        icon: <PlaywrightIcon className="icon_playwright" />,
+        isIcon: true,
+      },
+      {
+        name: "Vitest",
+        icon: <VitestIcon className="icon_vitest" />,
+        isIcon: true,
+      },
     ],
   },
   {
@@ -209,8 +231,34 @@ const TechCard = ({ tech, index }) => (
 const TechStack = () => {
   const [activeId, setActiveId] = useState(CATEGORIES[0].id);
   const [animKey, setAnimKey] = useState(0);
+  const [showFade, setShowFade] = useState(false);
   const containerRef = useRef(null);
+  const gridRef = useRef(null);
   const hasFiredRef = useRef(false);
+
+  // Solo recalcula al cambiar de tab o al redimensionar (debounced).
+  // No corre en scroll, así no hay reflow durante el scroll del grid.
+  useEffect(() => {
+    let timeout;
+    const check = () => {
+      const el = gridRef.current;
+      if (!el) return;
+      const tops = new Set();
+      Array.from(el.children).forEach((c) => tops.add(c.offsetTop));
+      setShowFade(tops.size > 3);
+    };
+
+    check();
+    const onResize = () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(check, 150);
+    };
+    window.addEventListener("resize", onResize);
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [activeId, animKey]);
 
   const active = CATEGORIES.find((c) => c.id === activeId);
 
@@ -262,10 +310,14 @@ const TechStack = () => {
       </div>
 
       {/* Grid */}
-      <div className="techstack__grid" key={animKey}>
-        {active.technologies.map((tech, i) => (
-          <TechCard key={tech.name} tech={tech} index={i} />
-        ))}
+      <div
+        className={`techstack__grid-wrap${showFade ? " techstack__grid-wrap--scrollable" : ""}`}
+      >
+        <div className="techstack__grid" key={animKey} ref={gridRef}>
+          {active.technologies.map((tech, i) => (
+            <TechCard key={tech.name} tech={tech} index={i} />
+          ))}
+        </div>
       </div>
 
       {/* Footer stats */}
