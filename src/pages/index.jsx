@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
-import { BaseSection, Header, Hero, ScrollButton } from "@/components";
+import { BaseSection, Hero, ScrollButton } from "@/components";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useRouter } from "next/router";
 import Head from "next/head";
 
 const TechStack = dynamic(() => import("@/components/TechStack/TechStack"));
@@ -23,12 +24,54 @@ export async function getStaticProps({ locale }) {
 }
 
 export default function Home() {
+  const { locale } = useRouter();
+  const isES = locale === "es";
+  const title = "CUBO — Frontend Developer";
+  const description = isES
+    ? "Heriberto, Desarrollador Frontend especializado en React, Vue y TypeScript."
+    : "Heriberto, Frontend Developer specialized in React, Vue and TypeScript.";
+  const canonical = `https://cubo.dev${isES ? "/es" : ""}`;
+
   return (
     <div className="page-container">
       <Head>
-        <title>cubo.dev</title>
-        <meta name="description" content="frontend developer" />
-        <link rel="icon" href="/favicon.png" arial-label="favicon" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="icon" href="/favicon.png" />
+        <link rel="canonical" href={canonical} />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content="https://cubo.dev/images/cubo.jpg" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content="https://cubo.dev/images/cubo.jpg" />
+
+        {/* JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Heriberto",
+              alternateName: "CUBO",
+              url: "https://cubo.dev",
+              image: "https://cubo.dev/images/cubo.jpg",
+              jobTitle: "Frontend Developer",
+              description: description,
+              sameAs: [
+                "https://github.com/CUBOFIG",
+              ],
+            }),
+          }}
+        />
       </Head>
       <main>
         <Hero />

@@ -1,5 +1,5 @@
 {
-  "aboutme": "Hello 👋, my name is <span class='is-typescript'>Heriberto</span> and I'm a Software Engineer with experience across diverse projects and technologies, and a strong passion for innovation. I dream of using my skills to guide anyone stepping into the world of technology.",
+  "aboutme": "Hello, my name is <span class='is-typescript'>Heriberto</span> and I'm a Software Engineer with experience across diverse projects and technologies, and a strong passion for innovation. I dream of using my skills to guide anyone stepping into the world of technology.",
   "devstack": "My main technologies belong to the <span class='is-javascript'>Javascript</span> and <span class='is-typescript'>Typescript</span> ecosystem, and I'm proficient in both languages. I have experience with <span>React</span> and <span>Vue</span> through multiple projects and their surrounding ecosystems. \nI work with the <span>Git</span> version control system along with <span>Github</span> and <span>Gitlab</span>. I also use platforms like <span>Jira</span>, <span>Slack</span>, <span>Figma</span> and <span>Trello</span> on a daily basis.",
   "myName": "CUBO",
   "page": "FrontEnd Developer",

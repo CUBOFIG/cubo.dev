@@ -38,7 +38,7 @@ const Hero = () => {
           transition={{ delay: 0.5, duration: 1 }}
         >
           <div>
-            <h1>{t("welcome")}</h1>
+            <p className="hero__welcome">{t("welcome")}</p>
 
             <div>
               <div
@@ -47,8 +47,8 @@ const Hero = () => {
                 })}
               >
                 <h1 className="h1-one">{t("myName")}</h1>
-                <h1 className="h1-two">{t("myName")}</h1>
-                <h1 className="h1-three">{t("myName")}</h1>
+                <h1 className="h1-two" aria-hidden="true">{t("myName")}</h1>
+                <h1 className="h1-three" aria-hidden="true">{t("myName")}</h1>
               </div>
             </div>
           </div>

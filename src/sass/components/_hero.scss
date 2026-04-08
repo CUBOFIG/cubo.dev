@@ -74,10 +74,9 @@
     text-align: center;
     margin-top: 1rem;
 
-    & > div > h1 {
-      margin: 0;
-      font-size: clamp(2rem, 8.5vmin, 12rem);
+    & > div > .hero__welcome {
       margin: 0.5rem 0;
+      font-size: clamp(2rem, 8.5vmin, 12rem);
       font-family: "0";
     }
 

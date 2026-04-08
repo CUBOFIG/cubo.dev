@@ -44,6 +44,10 @@ export default async function handler(req, res) {
       .json({ error: "Demasiados intentos. Intenta en 15 minutos." });
   }
 
+  if (!req.body || typeof req.body !== "object") {
+    return res.status(400).json({ error: "Body inválido." });
+  }
+
   const { email, message, _honey, turnstileToken } = req.body;
 
   // ── Honeypot ──────────────────────────────────────────────────────────────
