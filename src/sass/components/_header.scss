@@ -323,41 +323,41 @@
     }
   }
 
-  &__settings {
+  &__theme-toggle {
     margin: auto 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: $text-color;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem;
+    border-radius: 50%;
+    transition: color 0.3s ease;
 
-    & > .dropdown-container > .dropdown-toggle {
-      color: $text-color !important;
-      font-size: 1.875rem !important;
-
-      &:hover {
-        -webkit-animation: spin 4s linear infinite;
-        -moz-animation: spin 4s linear infinite;
-        animation: spin 4s linear infinite;
-      }
+    &:hover {
+      opacity: 0.7;
     }
 
-    @-moz-keyframes spin {
+    &--animating {
+      animation: theme-spin 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    @keyframes theme-spin {
+      0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(0) rotate(180deg);
+        opacity: 0;
+      }
       100% {
-        -moz-transform: rotate(360deg);
+        transform: scale(1) rotate(360deg);
+        opacity: 1;
       }
-    }
-
-    @-webkit-keyframes spin {
-      100% {
-        -webkit-transform: rotate(360deg);
-      }
-    }
-
-    @keyframes spin {
-      100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-      }
-    }
-
-    .settings-large {
-      display: none;
     }
   }
 

@@ -1,7 +1,6 @@
 import dynamic from "next/dynamic";
 import { BaseSection, Hero, ScrollButton } from "@/components";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useRouter } from "next/router";
 import Head from "next/head";
 
 const TechStack = dynamic(() => import("@/components/TechStack/TechStack"));
@@ -15,22 +14,18 @@ const ContactForm = dynamic(
   () => import("@/components/ContactForm/ContactForm"),
 );
 
-export async function getStaticProps({ locale }) {
+export async function getStaticProps() {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common"])),
+      ...(await serverSideTranslations("en", ["common"])),
     },
   };
 }
 
 export default function Home() {
-  const { locale } = useRouter();
-  const isES = locale === "es";
   const title = "CUBO — Frontend Developer";
-  const description = isES
-    ? "Heriberto, Desarrollador Frontend especializado en React, Vue y TypeScript."
-    : "Heriberto, Frontend Developer specialized in React, Vue and TypeScript.";
-  const canonical = `https://cubo.dev${isES ? "/es" : ""}`;
+  const description = "Heriberto, Frontend Developer specialized in React, Vue and TypeScript.";
+  const canonical = "https://cubo.dev";
 
   return (
     <div className="page-container">
@@ -97,7 +92,7 @@ export default function Home() {
         <ScrollButton />
       </main>
       <footer className="footer" id="footer">
-        <p>Creado con un cafe y mucho amor</p>
+        <p>Made with coffee and lots of love</p>
         <p className="header__logo">CUBO</p>
       </footer>
     </div>

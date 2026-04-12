@@ -30,7 +30,7 @@ function isRateLimited(ip) {
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Método no permitido" });
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
   // ── Rate limit ────────────────────────────────────────────────────────────
@@ -41,11 +41,11 @@ export default async function handler(req, res) {
   if (isRateLimited(ip)) {
     return res
       .status(429)
-      .json({ error: "Demasiados intentos. Intenta en 15 minutos." });
+      .json({ error: "Too many attempts. Try again in 15 minutes." });
   }
 
   if (!req.body || typeof req.body !== "object") {
-    return res.status(400).json({ error: "Body inválido." });
+    return res.status(400).json({ error: "Invalid body." });
   }
 
   const { email, message, _honey, turnstileToken } = req.body;
@@ -57,25 +57,25 @@ export default async function handler(req, res) {
 
   // ── Validación server-side ────────────────────────────────────────────────
   if (!email || !message) {
-    return res.status(400).json({ error: "Correo y mensaje son requeridos." });
+    return res.status(400).json({ error: "Email and message are required." });
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
-    return res.status(400).json({ error: "Correo inválido." });
+    return res.status(400).json({ error: "Invalid email." });
   }
 
   if (message.length < 10 || message.length > 5000) {
     return res
       .status(400)
-      .json({ error: "El mensaje debe tener entre 10 y 5000 caracteres." });
+      .json({ error: "Message must be between 10 and 5000 characters." });
   }
 
   // ── Turnstile verification ────────────────────────────────────────────────
   if (!turnstileToken) {
     return res
       .status(400)
-      .json({ error: "Verificación de seguridad requerida." });
+      .json({ error: "Security verification required." });
   }
 
   try {
@@ -97,10 +97,10 @@ export default async function handler(req, res) {
     if (!turnstileData.success) {
       return res
         .status(400)
-        .json({ error: "Verificación de seguridad fallida." });
+        .json({ error: "Security verification failed." });
     }
   } catch {
-    return res.status(500).json({ error: "Error verificando seguridad." });
+    return res.status(500).json({ error: "Error verifying security." });
   }
 
   // ── Enviar email con Resend ───────────────────────────────────────────────
@@ -109,9 +109,9 @@ export default async function handler(req, res) {
       from: "cubo.dev <contact@cubo.dev>",
       to: process.env.CONTACT_EMAIL,
       replyTo: email,
-      subject: `Nuevo mensaje desde cubo.dev`,
+      subject: `New message from cubo.dev`,
       html: `
-        <h2>Nuevo mensaje de contacto</h2>
+        <h2>New contact message</h2>
         <p><strong>De:</strong> ${escapeHtml(email)}</p>
         <hr />
         <p>${escapeHtml(message).replace(/\n/g, "<br />")}</p>
@@ -120,7 +120,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ success: true });
   } catch (error) {
-    console.error("Error enviando email:", error);
-    return res.status(500).json({ error: "Error enviando el mensaje." });
+    console.error("Error sending email:", error);
+    return res.status(500).json({ error: "Error sending message." });
   }
 }

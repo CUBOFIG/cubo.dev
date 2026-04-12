@@ -123,26 +123,26 @@ const ContactForm = () => {
       />
 
       <div className="contact-form__field">
-        <label htmlFor="contact-email">Correo</label>
+        <label htmlFor="contact-email">Email</label>
         <input
           id="contact-email"
           type="email"
           required
-          placeholder="tu@correo.com"
+          placeholder="your@email.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
 
       <div className="contact-form__field">
-        <label htmlFor="contact-message">Mensaje</label>
+        <label htmlFor="contact-message">Message</label>
         <textarea
           id="contact-message"
           required
           minLength={10}
           maxLength={5000}
           rows={5}
-          placeholder="Escribe tu mensaje..."
+          placeholder="Write your message..."
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
@@ -155,7 +155,7 @@ const ContactForm = () => {
         className="contact-form__submit"
         disabled={status === "sending"}
       >
-        {status === "sending" ? "Enviando..." : "Enviar mensaje"}
+        {status === "sending" ? "Sending..." : "Send message"}
       </button>
 
       {toast && (
@@ -171,7 +171,7 @@ const ContactForm = () => {
           <button
             type="button"
             className="contact-toast__close"
-            aria-label="Cerrar"
+            aria-label="Close"
             onClick={() => setToast(null)}
           >
             ×

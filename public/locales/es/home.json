@@ -1,9 +1,0 @@
-{
-  "aboutme": {
-    "description": "Hola, Mi nombre es Heriberto y soy Ingeniero de Software, con experiencia en diferentes proyectos con diferentes tecnologías y una gran pasión por la innovación. \nTengo el sueño de ayudar con mis habilidades a orientar a todo aquel que quiera adentrarse en el mundo de la tecnología."
-  },
-  "myName": "CUBO",
-  "page": "Desarrollador frontend",
-  "test": "hello <italic>beautiful</italic> <bold>{{what}}</bold>",
-  "welcome": "Hola, yo soy"
-}

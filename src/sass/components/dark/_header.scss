@@ -6,10 +6,8 @@
     color: $text-cdark;
   }
 
-  &__settings {
-    & > .dropdown-container > .dropdown-toggle {
-      color: $text-cdark !important;
-    }
+  &__theme-toggle {
+    color: $text-cdark;
   }
   
   .slime {

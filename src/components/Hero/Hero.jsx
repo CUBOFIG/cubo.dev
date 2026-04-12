@@ -5,7 +5,6 @@ import { Cubo } from "@/images";
 import classNames from "classnames";
 import { useTranslation } from "next-i18next";
 import { motion } from "framer-motion";
-import { FiDownload } from "react-icons/fi";
 
 const Hero = () => {
   const { t } = useTranslation();
@@ -56,15 +55,6 @@ const Hero = () => {
           <p>Frontend Developer</p>
           <p>{t("my_description")} </p>
 
-          <a
-            href="/static/data/cv.pdf"
-            download
-            className="hero__cv-button"
-            data-text={t("download_cv")}
-          >
-            <FiDownload className="hero__cv-button-icon" />
-            <span className="hero__cv-button-label">{t("download_cv")}</span>
-          </a>
         </motion.div>
 
         <motion.figure
