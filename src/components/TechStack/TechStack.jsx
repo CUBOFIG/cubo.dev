@@ -19,6 +19,11 @@ import {
   SiVitest as VitestIcon,
   SiReactrouter as ReactRouterIcon,
   SiClaude as ClaudeIcon,
+  SiRedux as ReduxIcon,
+  SiVite as ViteIcon,
+  SiFirebase as FirebaseIcon,
+  SiOpenai as OpenAIIcon,
+  SiGithubcopilot as CopilotIcon,
 } from "react-icons/si";
 import { RiNextjsFill as NextJSIcon } from "react-icons/ri";
 import {
@@ -35,7 +40,16 @@ import {
   RamdaIcon,
 } from "@/images";
 const rsbuildLogo = "/images/rsbuild-logo.svg";
-import { FiUser, FiUsers, FiZap, FiTarget, FiStar } from "react-icons/fi";
+import {
+  FiUser,
+  FiUsers,
+  FiZap,
+  FiTarget,
+  FiStar,
+  FiCpu,
+  FiRadio,
+  FiBox,
+} from "react-icons/fi";
 
 const CATEGORIES = [
   {
@@ -53,13 +67,28 @@ const CATEGORIES = [
         icon: <NextJSIcon className="icon_next" />,
         isIcon: true,
       },
-      { name: "Bun", icon: <BunIcon className="icon_bun" />, isIcon: true },
-      { name: "Rsbuild", icon: rsbuildLogo, isIcon: false },
+      {
+        name: "Redux",
+        icon: <ReduxIcon className="icon_redux" />,
+        isIcon: true,
+      },
+      {
+        name: "React Context",
+        icon: <ReactIcon className="icon_react" />,
+        isIcon: true,
+      },
+      {
+        name: "Zustand",
+        icon: <FiBox className="icon_zustand" />,
+        isIcon: true,
+      },
       {
         name: "React Router",
         icon: <ReactRouterIcon className="icon_reactrouter" />,
         isIcon: true,
       },
+      { name: "Bun", icon: <BunIcon className="icon_bun" />, isIcon: true },
+      { name: "Rsbuild", icon: rsbuildLogo, isIcon: false },
     ],
   },
   {
@@ -98,6 +127,11 @@ const CATEGORIES = [
       },
       { name: "GitLab", icon: GitlabIcon, isIcon: false },
       {
+        name: "Vite",
+        icon: <ViteIcon className="icon_vite" />,
+        isIcon: true,
+      },
+      {
         name: "Trello",
         icon: <TrelloIcon className="icon_trello" />,
         isIcon: true,
@@ -123,11 +157,6 @@ const CATEGORIES = [
         icon: <StorybookIcon className="icon_storybook" />,
         isIcon: true,
       },
-      {
-        name: "Claude Code",
-        icon: <ClaudeIcon className="icon_claude" />,
-        isIcon: true,
-      },
     ],
   },
   {
@@ -138,6 +167,16 @@ const CATEGORIES = [
       { name: "Leaflet", icon: LeafletIcon, isIcon: false },
       { name: "Ramda", icon: RamdaIcon, isIcon: false },
       {
+        name: "Firebase",
+        icon: <FirebaseIcon className="icon_firebase" />,
+        isIcon: true,
+      },
+      {
+        name: "WebSockets / SSE",
+        icon: <FiRadio className="icon_websockets" />,
+        isIcon: true,
+      },
+      {
         name: "Playwright",
         icon: <PlaywrightIcon className="icon_playwright" />,
         isIcon: true,
@@ -145,6 +184,37 @@ const CATEGORIES = [
       {
         name: "Vitest",
         icon: <VitestIcon className="icon_vitest" />,
+        isIcon: true,
+      },
+    ],
+  },
+  {
+    id: "ai",
+    label: "AI & Intelligent Tools",
+    technologies: [
+      {
+        name: "Claude Code",
+        icon: <ClaudeIcon className="icon_claude" />,
+        isIcon: true,
+      },
+      {
+        name: "Claude API",
+        icon: <ClaudeIcon className="icon_claude" />,
+        isIcon: true,
+      },
+      {
+        name: "GitHub Copilot",
+        icon: <CopilotIcon className="icon_copilot" />,
+        isIcon: true,
+      },
+      {
+        name: "LLM Integration",
+        icon: <FiCpu className="icon_ai" />,
+        isIcon: true,
+      },
+      {
+        name: "Prompt Engineering",
+        icon: <FiCpu className="icon_ai" />,
         isIcon: true,
       },
     ],

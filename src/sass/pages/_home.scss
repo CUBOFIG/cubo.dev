@@ -299,6 +299,27 @@
   .icon_reactrouter {
     color: #ca4245;
   }
+  .icon_redux {
+    color: #764abc;
+  }
+  .icon_zustand {
+    color: #453f39;
+  }
+  .icon_vite {
+    color: #646cff;
+  }
+  .icon_firebase {
+    color: #ffca28;
+  }
+  .icon_websockets {
+    color: #10b981;
+  }
+  .icon_copilot {
+    color: #6e40c9;
+  }
+  .icon_ai {
+    color: #d4a27f;
+  }
 }
 
 @keyframes techcard-in {
@@ -350,7 +371,8 @@
   }
 
   .icon_next,
-  .icon_github {
+  .icon_github,
+  .icon_zustand {
     color: #fff;
   }
 }

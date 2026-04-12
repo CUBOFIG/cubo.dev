@@ -63,7 +63,7 @@ const Hero = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1, duration: 1 }}
         >
-          <Image src={Cubo} alt="logo" className="hero__image-logo" priority />
+          <Image src={Cubo} alt="logo" className="hero__image-logo" priority draggable={false} />
         </motion.figure>
       </div>
     </section>
