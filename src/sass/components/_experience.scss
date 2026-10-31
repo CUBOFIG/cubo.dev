@@ -1,5 +1,5 @@
 .experience {
-  font-family: "1";
+  font-family: var(--font-arimo);
 
   .chat-logo {
     width: 60px !important;
@@ -56,7 +56,7 @@
 
       & > p {
         line-height: 2rem;
-        font-family: "1";
+        font-family: var(--font-arimo);
       }
 
       @include respond-to("medium") {

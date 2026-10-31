@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from "react";
-import { animateScroll as scroll } from "react-scroll";
 import { HiArrowUp } from "react-icons/hi";
 
 const ScrollButton = () => {
@@ -38,7 +37,7 @@ const ScrollButton = () => {
     <>
       {visible && (
         <button
-          onClick={() => scroll.scrollToTop({ duration: 100, smooth: true })}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="scroll-button"
           id="scroll-button"
           name="scroll-button"

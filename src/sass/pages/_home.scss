@@ -98,7 +98,7 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     background: transparent;
     color: $text-color;
-    font-family: "1", sans-serif;
+    font-family: var(--font-arimo), sans-serif;
     font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
@@ -218,7 +218,7 @@
   &__card-name {
     font-size: 0.9rem;
     font-weight: 500;
-    font-family: "1", sans-serif;
+    font-family: var(--font-arimo), sans-serif;
     color: $text-color;
     white-space: nowrap;
     overflow: hidden;
@@ -232,7 +232,7 @@
     padding-top: 0.75rem;
     border-top: 1px solid rgba(0, 0, 0, 0.08);
     font-size: 0.8rem;
-    font-family: "1", sans-serif;
+    font-family: var(--font-arimo), sans-serif;
     color: rgb(145, 142, 142);
   }
 
@@ -403,7 +403,7 @@
     gap: 0.35rem;
 
     label {
-      font-family: "1", sans-serif;
+      font-family: var(--font-arimo), sans-serif;
       font-size: 0.85rem;
       font-weight: 600;
       color: $text-color;
@@ -411,7 +411,7 @@
 
     input,
     textarea {
-      font-family: "1", sans-serif;
+      font-family: var(--font-arimo), sans-serif;
       font-size: 0.95rem;
       padding: 0.75rem 1rem;
       border-radius: 10px;
@@ -444,7 +444,7 @@
   }
 
   &__submit {
-    font-family: "1", sans-serif;
+    font-family: var(--font-arimo), sans-serif;
     font-size: 0.95rem;
     font-weight: 600;
     padding: 0.75rem 1.5rem;
@@ -470,7 +470,7 @@
   }
 
   &__status {
-    font-family: "1", sans-serif;
+    font-family: var(--font-arimo), sans-serif;
     font-size: 0.85rem;
     margin: 0;
     padding: 0.6rem 1rem;
@@ -504,7 +504,7 @@
   border: 1.5px solid #111;
   border-radius: 10px;
   box-shadow: 6px 6px 0 #111;
-  font-family: "1", sans-serif;
+  font-family: var(--font-arimo), sans-serif;
   font-size: 0.92rem;
   z-index: 9999;
   animation: contact-toast-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
