@@ -33,6 +33,7 @@
   }
 
   .hero__image-container {
+    animation: hero-slide-right 0.6s ease-out both;
     align-items: center;
     display: flex;
     flex: 1;
@@ -73,13 +74,14 @@
   }
 
   &__information {
+    animation: hero-slide-left 0.6s ease-out both;
     text-align: center;
     margin-top: 1rem;
 
     & > div > .hero__welcome {
       margin: 0.5rem 0;
       font-size: clamp(2rem, 8.5vmin, 12rem);
-      font-family: "0";
+      font-family: var(--font-funkturm);
     }
 
     p {
@@ -87,7 +89,7 @@
       margin-top: 0.8rem;
       color: #333131;
       font-size: clamp(1.5rem, 2vmin, 2rem);
-      font-family: "1";
+      font-family: var(--font-arimo);
     }
 
     p:nth-child(3) {
@@ -108,7 +110,7 @@
       width: fit-content;
       background: #333131;
       color: #fff;
-      font-family: "1", sans-serif;
+      font-family: var(--font-arimo), sans-serif;
       font-size: 1rem;
       border-radius: 8px;
       text-decoration: none;
@@ -139,7 +141,7 @@
         border-radius: 8px;
         pointer-events: none;
         opacity: 0;
-        font-family: "1", sans-serif;
+        font-family: var(--font-arimo), sans-serif;
         font-size: 1rem;
         letter-spacing: 0.02em;
       }
@@ -171,7 +173,7 @@
     }
 
     .name-container {
-      font-family: "0";
+      font-family: var(--font-funkturm);
       background-color: #333131;
       cursor: context-menu;
       display: grid;
@@ -190,43 +192,41 @@
         width: 100%;
       }
 
+      .h1-one {
+        animation: glitch1-cycle 5s infinite;
+      }
+
       .h1-two {
-        animation: glitch2 2.5s infinite;
+        animation: glitch2 2.5s infinite, glitch-visibility 5s infinite;
         color: #67f3da;
       }
 
       .h1-three {
-        animation: glitch3 2.5s infinite;
+        animation: glitch3 2.5s infinite, glitch-visibility 5s infinite;
         color: #f16f6f;
       }
 
       .h1-two,
       .h1-three {
-        display: none;
         grid-area: soloyo;
       }
 
       &:hover {
-        h1-one {
-          animation: glitch1 2.5s infinite;
-        }
-
-        .h1-two,
-        .h1-three {
-          display: block;
-        }
-      }
-
-      &__animate {
         .h1-one {
           animation: glitch1 2.5s infinite;
         }
 
         .h1-two,
         .h1-three {
-          display: block;
+          animation-name: glitch2, none;
+          visibility: visible;
+        }
+
+        .h1-three {
+          animation-name: glitch3, none;
         }
       }
+
     }
   }
 
@@ -356,5 +356,25 @@
     100% {
       background-color: #80a4d3;
     }
+  }
+}
+
+// Entrada solo con transform: el contenido es visible desde el primer pintado (LCP)
+@keyframes hero-slide-left {
+  from {
+    transform: translateX(-50px);
+  }
+}
+
+@keyframes hero-slide-right {
+  from {
+    transform: translateX(50px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__information,
+  .hero__image-container {
+    animation: none;
   }
 }
