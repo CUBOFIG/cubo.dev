@@ -1,6 +1,6 @@
 
 .dark .header {
-  background-color: $text-color !important;
+  --header-bg: #{$background-cdark};
 
   &__logo {
     color: $text-cdark;

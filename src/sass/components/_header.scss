@@ -1,8 +1,12 @@
+$header-height: 3.75rem;
+
 .header {
+  --header-bg: #{$background-color};
+
   align-items: center;
-  background: $background-color;
+  background: transparent;
   display: flex;
-  height: 4.5rem;
+  height: $header-height;
   justify-content: space-between;
   transition: all ease-in-out 0.3s;
   width: 100%;
@@ -10,14 +14,57 @@
   top: 0;
   z-index: 10000;
 
+  // Difuminado discreto: solo aparece al hacer scroll
+  &__fade {
+    position: absolute;
+    inset: 0 0 -12px 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
+
+    &::before {
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+    }
+
+    &::after {
+      background: linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--header-bg) 60%, transparent) 0%,
+        color-mix(in srgb, var(--header-bg) 40%, transparent) 70%,
+        transparent 100%
+      );
+    }
+  }
+
+  &--scrolled &__fade {
+    opacity: 1;
+  }
+
   &__container {
+    position: relative;
     -webkit-box-pack: justify;
     display: flex;
     justify-content: space-between;
-    max-width: 1200px;
-    padding-left: 30px;
-    padding-right: 30px;
+    max-width: calc(1680px + 2 * clamp(20px, 4.5vw, 96px));
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
     width: 100%;
+
+    // Alineado con los márgenes del hero
+    @media screen and (min-width: 1024px) {
+      padding-left: clamp(20px, 4.5vw, 96px);
+      padding-right: clamp(20px, 4.5vw, 96px);
+    }
 
     @include respond-to("small") {
       margin-right: auto;
@@ -31,15 +78,10 @@
     color: $text-color;
     cursor: pointer;
     display: flex;
-    font-size: 1.8rem;
+    font: 400 clamp(20px, 1.6vw, 30px) / 1 var(--font-bowlby), sans-serif;
     height: 3.125rem;
     justify-content: center;
     margin: 0;
-    font-family: var(--font-cube);
-
-    @include respond-to("small") {
-      font-size: 2.5rem;
-    }
   }
 
   &__blog-wrapper {
@@ -423,24 +465,6 @@
 
     & > a > button > svg {
       font-size: 30px;
-    }
-  }
-
-  @media screen and (min-width: 795px) {
-    .header__container {
-      max-width: 100dvh;
-    }
-  }
-
-  @media screen and (min-width: 955px) {
-    .header__container {
-      max-width: 1200px;
-    }
-  }
-
-  @media screen and (min-width: 1460px) {
-    .header__container {
-      max-width: 1728px;
     }
   }
 }

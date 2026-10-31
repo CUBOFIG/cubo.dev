@@ -8,29 +8,44 @@ const Hero = () => {
 
   return (
     <section className="hero">
-      <div className="hero__blur"></div>
-      <div className="hero__container-information">
-        <div className="hero__information">
-          <div>
-            <p className="hero__welcome">{t("welcome")}</p>
+      <div className="hero__content">
+        <h1 className="hero__title">
+          <span className="hero__greeting">{t("hero_greeting")}</span>
+          <span className="hero__name">
+            <span className="hero__name-layer hero__name-layer--main">{t("hero_name")}</span>
+            <span className="hero__name-layer hero__name-layer--cyan" aria-hidden="true">
+              {t("hero_name")}
+            </span>
+            <span className="hero__name-layer hero__name-layer--red" aria-hidden="true">
+              {t("hero_name")}
+            </span>
+          </span>
+        </h1>
 
-            <div>
-              <div className="name-container">
-                <h1 className="h1-one">{t("myName")}</h1>
-                <h1 className="h1-two" aria-hidden="true">{t("myName")}</h1>
-                <h1 className="h1-three" aria-hidden="true">{t("myName")}</h1>
-              </div>
-            </div>
-          </div>
+        <figure className="hero__avatar">
+          <Image
+            src={Cubo}
+            alt="CUBO avatar"
+            className="hero__avatar-image"
+            sizes="(min-width: 1024px) 400px, 70vw"
+            width={400}
+            height={400}
+            priority
+            draggable={false}
+          />
+        </figure>
 
-          <p>Frontend Developer</p>
-          <p>{t("my_description")} </p>
-
+        <div className="hero__intro">
+          <p className="hero__role">Frontend Developer</p>
+          <p className="hero__description">{t("hero_description")}</p>
         </div>
 
-        <figure className="hero__image-container">
-          <Image src={Cubo} alt="logo" className="hero__image-logo" priority draggable={false} />
-        </figure>
+        <div className="hero__cta">
+          <p className="hero__tagline">{t("hero_tagline")}</p>
+          <a href="#experience" className="hero__button">
+            {t("hero_view_work")} →
+          </a>
+        </div>
       </div>
     </section>
   );
