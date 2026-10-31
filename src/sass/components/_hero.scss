@@ -2,50 +2,184 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin-bottom: 5rem;
   width: 100%;
+  min-height: 100svh;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  justify-content: center;
+  position: relative;
+  background-repeat: no-repeat;
+  background-image: url("../../../public/images/dots.svg"),
+    url("../../../public/images/dots.svg");
+  background-position: 30px 100%, calc(100% - 30px) 10%;
+  background-size: 100px 100px, 100px 100px;
 
-  @include respond-to('small') {
-    margin-right: auto;
-    margin-left: auto;
-    justify-content: center;
+  .hero__blur {
+    animation: changeColorBackground 30s infinite;
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    left: 70%;
+    transform: translateX(-50%);
+    filter: blur(150px);
+    z-index: 0;
   }
 
-  &__image-logo {
-    border-radius: 50%;
-    height: 50%;
-    margin-top: 3rem;
-    object-fit: cover;
-    width: 50%;
+  .hero__container-information {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.4rem 0 1.4rem;
+  }
 
-    @include respond-to('small') {
-      width: 20%;
-    }
+  .hero__image-container {
+    animation: hero-slide-right 0.6s ease-out both;
+    align-items: center;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    margin: auto;
+    overflow: hidden;
+    padding: 15%;
+    //width: 100%;
+    z-index: 1000;
+  }
+
+  .hero__image-logo {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #21d4fd;
+    background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    box-shadow: 15px 15px 50px rgba(0, 0, 0, 0.2);
+    animation: morphing 10s infinite;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  .hero__image-container:hover .hero__image-logo {
+    animation-play-state: paused;
+  }
+
+  .hero__information > div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero__information > div > div {
+    margin: 0 auto;
   }
 
   &__information {
+    animation: hero-slide-left 0.6s ease-out both;
     text-align: center;
     margin-top: 1rem;
 
-    & > div > h1 {
-      margin: 0;
-      font-size: 2rem;
+    & > div > .hero__welcome {
       margin: 0.5rem 0;
+      font-size: clamp(2rem, 8.5vmin, 12rem);
+      font-family: var(--font-funkturm);
     }
-  
+
     p {
       margin: 0;
       margin-top: 0.8rem;
-      color: rgb(145, 142, 142);
-      font-size: 1.3rem;
+      color: #333131;
+      font-size: clamp(1.5rem, 2vmin, 2rem);
+      font-family: var(--font-arimo);
+    }
+
+    p:nth-child(3) {
+      margin-top: 2rem;
+      font-size: clamp(1.3rem, 2vmin, 24px);
+      color: #80a4d3;
+      animation: changeColor 30s infinite;
+    }
+
+    .hero__cv-button {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 1.5rem auto 0;
+      padding: 0.75rem 1.4rem;
+      max-width: 220px;
+      width: fit-content;
+      background: #333131;
+      color: #fff;
+      font-family: var(--font-arimo), sans-serif;
+      font-size: 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+      .hero__cv-button-icon {
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+
+      &::before,
+      &::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1.4rem;
+        padding-left: 2.6rem;
+        border-radius: 8px;
+        pointer-events: none;
+        opacity: 0;
+        font-family: var(--font-arimo), sans-serif;
+        font-size: 1rem;
+        letter-spacing: 0.02em;
+      }
+
+      &::before {
+        color: #67f3da;
+        text-shadow: 1px 0 #67f3da;
+      }
+
+      &::after {
+        color: #f16f6f;
+        text-shadow: -1px 0 #f16f6f;
+      }
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+
+        &::before {
+          animation: glitch2 1.2s infinite;
+          opacity: 1;
+        }
+
+        &::after {
+          animation: glitch3 1.2s infinite;
+          opacity: 1;
+        }
+      }
     }
 
     .name-container {
+      font-family: var(--font-funkturm);
       background-color: #333131;
       cursor: context-menu;
       display: grid;
-      grid-template-areas: 'soloyo';
-      padding: 0 0.5rem;
+      grid-template-areas: "soloyo";
+      padding: 1rem 0.5rem;
+      letter-spacing: 4px;
 
       h1 {
         margin: 0;
@@ -58,38 +192,189 @@
         width: 100%;
       }
 
+      .h1-one {
+        animation: glitch1-cycle 5s infinite;
+      }
+
       .h1-two {
-        animation: glitch2 2.5s infinite;
+        animation: glitch2 2.5s infinite, glitch-visibility 5s infinite;
         color: #67f3da;
       }
-    
+
       .h1-three {
-        animation: glitch3 2.5s infinite;
+        animation: glitch3 2.5s infinite, glitch-visibility 5s infinite;
         color: #f16f6f;
       }
 
-      .h1-two, .h1-three { 
-        display: none;
+      .h1-two,
+      .h1-three {
         grid-area: soloyo;
       }
 
       &:hover {
-        h1-one {
+        .h1-one {
           animation: glitch1 2.5s infinite;
         }
-        
-        .h1-two, .h1-three { 
-          display: block;
+
+        .h1-two,
+        .h1-three {
+          animation-name: glitch2, none;
+          visibility: visible;
+        }
+
+        .h1-three {
+          animation-name: glitch3, none;
         }
       }
-    }
-    
-    @include respond-to('small') {
-      margin-left: 5rem;
+
     }
   }
 
-  @include respond-to('small') {
+  @media screen and (min-width: 795px) {
+    justify-content: center;
+
+    .hero__container-information {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+
+    &__information {
+      margin-top: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &__information p:nth-child(3) {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .hero__container-information {
+      max-width: 1200px;
+    }
+
+    .hero__image-container {
+      width: auto;
+      flex: none;
+      margin: 0;
+      padding: 5%;
+    }
+
+    &__information p:nth-child(3) {
+      margin-top: 2rem;
+    }
+
+    .hero__image-logo {
+      width: 80%;
+      height: 100%;
+    }
+
+    .name-container {
+      width: 282px;
+    }
+  }
+
+  @media screen and (min-width: 1460px) {
+    .hero__container-information {
+      max-width: 1728px;
+    }
+
+    .hero__image-logo {
+      width: 100%;
+    }
+
+    .name-container {
+      width: 316px;
+    }
+  }
+
+  @include respond-to("small") {
     flex-direction: row;
+    background-size: auto, auto;
+    background-position: 30px 100%, calc(100% - 30px) 20%;
+  }
+
+  @include respond-to("large") {
+    min-height: 100svh;
+  }
+
+  @keyframes morphing {
+    0% {
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      box-shadow: 15px 15px 50px rgba(0, 0, 0, 0.2);
+    }
+    25% {
+      border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+    }
+    50% {
+      border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+      box-shadow: -10px -5px 50px rgba(0, 0, 0, 0.2);
+    }
+    75% {
+      border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+    }
+  }
+
+  @keyframes changeColor {
+    0% {
+      color: #80a4d3;
+    }
+    20% {
+      color: #eebc3a;
+    }
+    40% {
+      color: #f36159;
+    }
+    60% {
+      color: #f693b4;
+    }
+    80% {
+      color: #65bcba;
+    }
+    100% {
+      color: #80a4d3;
+    }
+  }
+
+  @keyframes changeColorBackground {
+    0% {
+      background-color: #80a4d3;
+    }
+    20% {
+      background-color: #eebc3a;
+    }
+    40% {
+      background-color: #f36159;
+    }
+    60% {
+      background-color: #f693b4;
+    }
+    80% {
+      background-color: #65bcba;
+    }
+    100% {
+      background-color: #80a4d3;
+    }
+  }
+}
+
+// Entrada solo con transform: el contenido es visible desde el primer pintado (LCP)
+@keyframes hero-slide-left {
+  from {
+    transform: translateX(-50px);
+  }
+}
+
+@keyframes hero-slide-right {
+  from {
+    transform: translateX(50px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__information,
+  .hero__image-container {
+    animation: none;
   }
 }

@@ -1,38 +1,38 @@
+import React from "react";
 import {
-  ReactIcon,
   VueIcon,
-  NextJSIcon,
-  BootsrapIcon,
-  BuefyIcon,
   FigmaIcon,
   FormikIcon,
-  GithubIcon,
-  GitIcon,
   GitlabIcon,
   LeafletIcon,
-  MaterialUIIcon,
-  SassIcon,
   SCIcon,
-  TrelloIcon,
   RamdaIcon,
-  JiraIcon,
-  BitBucketIcon,
-  Cubo,
   favicon,
+  hmh,
+  wanabana,
+  mac,
+  arkon,
 } from "@/images";
 
-const homeData = [
-  {
-    nombre: "Pepito Conejo",
-    edad: 25,
-    "carnet de conducir": true,
-  },
-  {
-    nombre: "Ana Barberá",
-    edad: 90,
-    "carnet de conducir": false,
-  },
-];
+import {
+  FaBitbucket as BitBucketIcon,
+  FaJira as JiraIcon,
+  FaTrello as TrelloIcon,
+  FaSass as SassIcon,
+  FaReact as ReactIcon,
+  FaBootstrap as BootstrapIcon,
+  FaGithub as GithubIcon,
+  FaGitAlt as GitIcon,
+} from "react-icons/fa";
+import {
+  SiBuefy as BuefyIcon,
+  SiMui as MaterialUIIcon,
+  SiBun as BunIcon,
+  SiDocker as DockerIcon,
+  SiWebpack as RsbuildIcon,
+} from "react-icons/si";
+import { RiNextjsFill as NextJSIcon } from "react-icons/ri";
+import { VscSettings as FliptIcon } from "react-icons/vsc";
 
 export const listData = [
   {
@@ -40,15 +40,27 @@ export const listData = [
     elements: [
       {
         name: "react",
-        icon: ReactIcon,
+        icon: <ReactIcon className="icon_react" />,
+        isIcon: true,
       },
       {
         name: "vue",
         icon: VueIcon,
       },
       {
-        icon: NextJSIcon,
+        icon: <NextJSIcon className="icon_next" />,
         name: "next.js",
+        isIcon: true,
+      },
+      {
+        icon: <BunIcon className="icon_bun" />,
+        name: "bun",
+        isIcon: true,
+      },
+      {
+        icon: <RsbuildIcon className="icon_rsbuild" />,
+        name: "rsbuild",
+        isIcon: true,
       },
     ],
   },
@@ -56,24 +68,28 @@ export const listData = [
     title: "Style Frameworks & Libraries",
     elements: [
       {
-        icon: SassIcon,
+        icon: <SassIcon className="icon_sass" />,
         name: "sass",
+        isIcon: true,
       },
       {
-        icon: BootsrapIcon,
+        icon: <BootstrapIcon className="icon_bootstrap" />,
         name: "bootstrap",
+        isIcon: true,
       },
       {
         icon: SCIcon,
         name: "style Components",
       },
       {
-        icon: MaterialUIIcon,
+        icon: <MaterialUIIcon className="icon_material" />,
         name: "material UI",
+        isIcon: true,
       },
       {
-        icon: BuefyIcon,
+        icon: <BuefyIcon className="icon_buefy" />,
         name: "buefy",
+        isIcon: true,
       },
     ],
   },
@@ -85,28 +101,43 @@ export const listData = [
         name: "figma",
       },
       {
-        icon: GitIcon,
+        icon: <GitIcon className="icon_git" />,
         name: "git",
+        isIcon: true,
       },
       {
-        icon: GithubIcon,
+        icon: <GithubIcon className="icon_github" />,
         name: "github",
+        isIcon: true,
       },
       {
         icon: GitlabIcon,
         name: "gitlab",
       },
       {
-        icon: TrelloIcon,
+        icon: <TrelloIcon className="icon_trello" />,
         name: "trello",
+        isIcon: true,
       },
       {
-        icon: JiraIcon,
+        icon: <JiraIcon className="icon_jira" />,
         name: "jira",
+        isIcon: true,
       },
       {
-        icon: BitBucketIcon,
+        icon: <BitBucketIcon className="icon_bitbucket" />,
         name: "BitBucket",
+        isIcon: true,
+      },
+      {
+        icon: <DockerIcon className="icon_docker" />,
+        name: "docker",
+        isIcon: true,
+      },
+      {
+        icon: <FliptIcon className="icon_flipt" />,
+        name: "flipt",
+        isIcon: true,
       },
     ],
   },
@@ -141,8 +172,11 @@ export const listData = [
       },
       {
         icon: favicon,
-
         name: "Problem solving",
+      },
+      {
+        icon: favicon,
+        name: "Leadership",
       },
     ],
   },
@@ -150,45 +184,31 @@ export const listData = [
 
 export const experienceData = [
   {
-    name: "Punto de venta",
+    name: "Arkon Data",
     position: "Front-End Developer",
-    description: "",
-    action: "inicia un nuevo proyecto Freelance de",
-    date: "Feb 2021",
+    date: "Feb. 2024 - Current",
+    image: arkon,
+    current: true,
+  },
+  {
+    name: "Hospitales Mac",
+    position: "Front-End Developer",
+    description: "mac_description",
+    date: "Jul. 2023 - Feb. 2024",
+    image: mac,
+  },
+  {
+    name: "HMH Sistemas",
+    position: "Front-End Developer",
+    description: "hmh_description",
+    date: "Ene. 2022 - Jul. 2023",
+    image: hmh,
   },
   {
     name: "Wanabana.io",
     position: "Front-End Developer",
-    description: "",
-    action: "comienza a trabajar en",
-    date: "Nov 2021",
-  },
-  {
-    name: "HMH Sistemas",
-    position: "Front-End Developer",
-    description: "",
-    action: "comienza a trabajar en",
-    date: "Feb 2023",
-  },
-  {
-    name: "Transcol",
-    position: "Front-End Developer",
-    description: "",
-    url: "transcol.com.mx",
-    action: "inicia en un nuevo proyecto",
-    date: "Jun 2022",
-  },
-  {
-    name: "HMH Sistemas",
-    description: "",
-    action: "es promovido a Team Leader en",
-    date: "Feb 2023",
-  },
-  {
-    name: "Hospitales MAC",
-    position: "Front-End Developer",
-    description: "",
-    current: true,
-    date: "Jun 2023",
+    description: "wanabana_description",
+    date: "Nov. 2020 - Nov. 2021",
+    image: wanabana,
   },
 ];

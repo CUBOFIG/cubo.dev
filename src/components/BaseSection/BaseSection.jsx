@@ -8,7 +8,7 @@ const BaseSection = ({ description, title, content: Content }) => {
     <div className="base-section">
       <div className="base-section__title">
         {title.ft && <h1 dangerouslySetInnerHTML={{ __html: title.ft }} />}
-        <div className="contt">
+        <div className="cont-title">
           <h1>{title.st}</h1>
           <h1 className="t-h2">{title.st}</h1>
           <h1 className="t-h3">{title.st}</h1>

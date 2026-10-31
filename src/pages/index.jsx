@@ -1,41 +1,80 @@
-import {
-  BaseSection,
-  Header,
-  Hero,
-  ScrollButton,
-  TechStack,
-  ExperienceList,
-} from "@/components";
+import dynamic from "next/dynamic";
+import { BaseSection, Hero, ScrollButton } from "@/components";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
-import SocialNetwork from "../components/SocialNetwork/SocialNetwork";
 
-export async function getStaticProps({ locale }) {
+const TechStack = dynamic(() => import("@/components/TechStack/TechStack"));
+const ExperienceList = dynamic(
+  () => import("@/components/ExperienceList/ExperienceList"),
+);
+const SocialNetwork = dynamic(
+  () => import("../components/SocialNetwork/SocialNetwork"),
+);
+const ContactForm = dynamic(
+  () => import("@/components/ContactForm/ContactForm"),
+);
+
+export async function getStaticProps() {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common"])),
+      ...(await serverSideTranslations("en", ["common"])),
     },
   };
 }
 
 export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>cubo.dev</title>
-        <meta name="description" content="frontend developer" />
-        <link rel="icon" href="/favicon.png" />
-      </Head>
+  const title = "CUBO — Frontend Developer";
+  const description = "Heriberto, Frontend Developer specialized in React, Vue and TypeScript.";
+  const canonical = "https://cubo.dev";
 
+  return (
+    <div className="page-container">
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="icon" href="/favicon.png" />
+        <link rel="canonical" href={canonical} />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content="https://cubo.dev/images/cubo.jpg" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content="https://cubo.dev/images/cubo.jpg" />
+
+        {/* JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Heriberto",
+              alternateName: "CUBO",
+              url: "https://cubo.dev",
+              image: "https://cubo.dev/images/cubo.jpg",
+              jobTitle: "Frontend Developer",
+              description: description,
+              sameAs: [
+                "https://github.com/CUBOFIG",
+              ],
+            }),
+          }}
+        />
+      </Head>
       <main>
-        <Header />
+        <Hero />
         <section className="container">
-          <Hero />
           <BaseSection
             title={{ ft: "About", st: "Me" }}
             description="aboutme"
           />
-
           <BaseSection
             title={{ ft: "Tech", st: "Stack" }}
             description="devstack"
@@ -46,25 +85,16 @@ export default function Home() {
             description="myexperience"
             content={ExperienceList}
           />
-          {/* <BaseSection
-            title={{ ft: "My", st: "Projects" }}
-            description="aboutme"
-          /> */}
-          {/* <BaseSection title={{ st: "Contact Me" }} description="aboutme" />
-          <div className="aports">
-            <BaseSection title={{ st: "Aportaciones" }} description="aboutme" />
-          </div> */}
-          <BaseSection title={{ st: "Contact Me" }} />
+          <BaseSection title={{ st: "Contact Me" }} content={ContactForm} />
           <SocialNetwork />
         </section>
 
         <ScrollButton />
       </main>
-
-      <footer className="footer">
-        <p>Creado con un cafe y mucho amor</p>
+      <footer className="footer" id="footer">
+        <p>Made with coffee and lots of love</p>
         <p className="header__logo">CUBO</p>
       </footer>
-    </>
+    </div>
   );
 }

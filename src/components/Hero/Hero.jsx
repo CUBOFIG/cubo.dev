@@ -8,19 +8,29 @@ const Hero = () => {
 
   return (
     <section className="hero">
-      <Image src={Cubo} alt="logo" className="hero__image-logo" />
-      <div className="hero__information">
-        <div>
-          <h1>{t("welcome")}</h1>
+      <div className="hero__blur"></div>
+      <div className="hero__container-information">
+        <div className="hero__information">
+          <div>
+            <p className="hero__welcome">{t("welcome")}</p>
 
-          <div className="name-container">
-            <h1 className="h1-one">{t("myName")}</h1>
-            <h1 className="h1-two">{t("myName")}</h1>
-            <h1 className="h1-three">{t("myName")}</h1>
+            <div>
+              <div className="name-container">
+                <h1 className="h1-one">{t("myName")}</h1>
+                <h1 className="h1-two" aria-hidden="true">{t("myName")}</h1>
+                <h1 className="h1-three" aria-hidden="true">{t("myName")}</h1>
+              </div>
+            </div>
           </div>
+
+          <p>Frontend Developer</p>
+          <p>{t("my_description")} </p>
+
         </div>
 
-        <p>Frontend Developer</p>
+        <figure className="hero__image-container">
+          <Image src={Cubo} alt="logo" className="hero__image-logo" priority draggable={false} />
+        </figure>
       </div>
     </section>
   );

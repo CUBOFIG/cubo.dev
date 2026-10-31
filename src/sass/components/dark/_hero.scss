@@ -18,5 +18,14 @@
         color: $background-cdark;
       }
     }
+
+    .hero__cv-button {
+      background: $text-cdark;
+      color: $background-cdark;
+
+      &:hover {
+        box-shadow: 0 6px 18px rgba(255, 255, 255, 0.15);
+      }
+    }
   }
 }

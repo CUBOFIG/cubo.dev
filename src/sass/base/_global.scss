@@ -2,13 +2,39 @@
   margin-top: 4rem;
 }
 
-body {
-  background-color: $background-color;
-  color: $text-color;
-  transition: all ease-in-out 0.3s;
-}
-
 .dark body {
   background-color: $background-cdark;
   transition: all ease-in-out 0.3s;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: $background-color;
+  color: $text-color;
+  transition: all ease-in-out 0.3s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+}
+
+.page-container {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }

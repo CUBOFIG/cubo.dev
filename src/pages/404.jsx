@@ -7,11 +7,12 @@ export default function FourOhFour() {
     <div className="error">
       <h2>404 - Page Not Found</h2>
       <Link
+        aria-label="Home"
         href={{
           pathname: "/",
         }}
       >
-        <Image src={Miloco} alt="mi-loco-pal-home" />
+        <Image src={Miloco} alt="mi-loco-pal-home" priority={true} />
         <h1>PARA EL HOME MI PANA</h1>
       </Link>
     </div>

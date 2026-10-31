@@ -1,4 +1,3 @@
-export { default as LenguageSelector } from "./LenguageSelector/LenguageSelector";
 export { default as ButtonGrid } from "./Buttons/ButtonGrid";
 export { default as Header } from "./Header/Header";
 export { default as Hero } from "./Hero/Hero";

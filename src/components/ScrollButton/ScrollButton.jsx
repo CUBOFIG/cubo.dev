@@ -1,23 +1,48 @@
-import { useState, useEffect } from "react";
-import { animateScroll as scroll } from "react-scroll";
+import { useState, useEffect, useCallback } from "react";
 import { HiArrowUp } from "react-icons/hi";
 
 const ScrollButton = () => {
   const [visible, setVisible] = useState(false);
 
-  const toggleVisible = () => {
+  const toggleVisible = useCallback(() => {
     const scrolled = document.documentElement.scrollTop;
     setVisible(scrolled > 300);
-  };
+    verificarSobreposicion();
+
+    // eslint-disable-next-line
+  }, []);
+
+  const verificarSobreposicion = useCallback(() => {
+    const footer = document.getElementById("footer");
+    const scrollButton = document.getElementById("scroll-button");
+
+    if (!footer || !scrollButton) return;
+
+    const footerRect = footer.getBoundingClientRect();
+    const buttonRect = scrollButton.getBoundingClientRect();
+
+    const isOverlapping =
+      buttonRect.bottom > footerRect.top && buttonRect.top < footerRect.bottom;
+
+    scrollButton.classList.toggle("sobre", isOverlapping);
+  }, []);
 
   useEffect(() => {
     window.addEventListener("scroll", toggleVisible);
-  }, []);
+
+    return () => window.removeEventListener("scroll", toggleVisible);
+  }, [toggleVisible]);
 
   return (
     <>
       {visible && (
-        <button onClick={() => scroll.scrollToTop()} className="scroll-button">
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="scroll-button"
+          id="scroll-button"
+          name="scroll-button"
+          aria-label="scroll to top"
+        >
           <HiArrowUp size={30} />
         </button>
       )}
