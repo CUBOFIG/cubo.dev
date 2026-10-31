@@ -81,6 +81,8 @@
     display: flex;
     gap: 0.5rem;
     overflow-x: auto;
+    // Sin esto overflow-y pasa a "auto" y la fila captura el scroll vertical de la página
+    overflow-y: hidden;
     padding-bottom: 0.5rem;
     scrollbar-width: none;
 
@@ -307,6 +309,36 @@
   }
   .icon_vite {
     color: #646cff;
+  }
+  .icon_javascript {
+    color: #f7df1e;
+  }
+  .icon_typescript {
+    color: #3178c6;
+  }
+  .icon_html {
+    color: #e34f26;
+  }
+  .icon_css {
+    color: #663399;
+  }
+  .icon_ruby {
+    color: #cc342d;
+  }
+  .icon_python {
+    color: #3776ab;
+  }
+  .icon_azure {
+    color: #0078d4;
+  }
+  .icon_reactflow {
+    color: #ff0072;
+  }
+  .icon_postgresql {
+    color: #4169e1;
+  }
+  .icon_architecture {
+    color: #80a3d5;
   }
   .icon_firebase {
     color: #ffca28;
