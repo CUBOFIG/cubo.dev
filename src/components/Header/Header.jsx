@@ -8,9 +8,17 @@ const Header = () => {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const isDark = theme === "dark";
 
   useEffect(() => setMounted(true), []);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 4);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const toggleTheme = () => {
     setIsAnimating(true);
@@ -20,7 +28,8 @@ const Header = () => {
 
   return (
     <>
-      <nav className="header">
+      <nav className={`header${scrolled ? " header--scrolled" : ""}`}>
+        <div className="header__fade" aria-hidden="true" />
         <div className="header__container">
           <h1 className="header__logo">
             <Link href="/" aria-label="Go Home">

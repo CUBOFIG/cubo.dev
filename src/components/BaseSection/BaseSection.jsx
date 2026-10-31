@@ -1,11 +1,11 @@
 import { useTranslation } from "next-i18next";
 
-const BaseSection = ({ description, title, content: Content }) => {
+const BaseSection = ({ id, description, title, content: Content }) => {
   const { t } = useTranslation();
   const textTranslate = t(description).replace(/\n/g, "<hr />");
 
   return (
-    <div className="base-section">
+    <div className="base-section" id={id}>
       <div className="base-section__title">
         {title.ft && <h1 dangerouslySetInnerHTML={{ __html: title.ft }} />}
         <div className="cont-title">

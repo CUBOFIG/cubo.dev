@@ -24,11 +24,25 @@ import {
   SiFirebase as FirebaseIcon,
   SiOpenai as OpenAIIcon,
   SiGithubcopilot as CopilotIcon,
+  SiJavascript as JavaScriptIcon,
+  SiTypescript as TypeScriptIcon,
+  SiHtml5 as HtmlIcon,
+  SiCss as CssIcon,
+  SiRuby as RubyIcon,
+  SiPython as PythonIcon,
+  SiPostgresql as PostgresIcon,
 } from "react-icons/si";
+import {
+  TbHierarchy as ReactFlowIcon,
+  TbLayoutGrid as MicrofrontendIcon,
+  TbStack2 as MonorepoIcon,
+  TbComponents as PatternsIcon,
+} from "react-icons/tb";
 import { RiNextjsFill as NextJSIcon } from "react-icons/ri";
 import {
   VscSettings as FliptIcon,
   VscBeaker as PlaywrightIcon,
+  VscAzure as AzureIcon,
 } from "react-icons/vsc";
 import {
   VueIcon,
@@ -52,6 +66,30 @@ import {
 } from "react-icons/fi";
 
 const CATEGORIES = [
+  {
+    id: "languages",
+    label: "Languages",
+    technologies: [
+      {
+        name: "JavaScript",
+        icon: <JavaScriptIcon className="icon_javascript" />,
+        isIcon: true,
+      },
+      {
+        name: "TypeScript",
+        icon: <TypeScriptIcon className="icon_typescript" />,
+        isIcon: true,
+      },
+      { name: "HTML", icon: <HtmlIcon className="icon_html" />, isIcon: true },
+      { name: "CSS", icon: <CssIcon className="icon_css" />, isIcon: true },
+      { name: "Ruby", icon: <RubyIcon className="icon_ruby" />, isIcon: true },
+      {
+        name: "Python",
+        icon: <PythonIcon className="icon_python" />,
+        isIcon: true,
+      },
+    ],
+  },
   {
     id: "frameworks",
     label: "Frameworks & Libraries",
@@ -157,6 +195,11 @@ const CATEGORIES = [
         icon: <StorybookIcon className="icon_storybook" />,
         isIcon: true,
       },
+      {
+        name: "Azure",
+        icon: <AzureIcon className="icon_azure" />,
+        isIcon: true,
+      },
     ],
   },
   {
@@ -165,6 +208,16 @@ const CATEGORIES = [
     technologies: [
       { name: "Formik + Yup", icon: FormikIcon, isIcon: false },
       { name: "Leaflet", icon: LeafletIcon, isIcon: false },
+      {
+        name: "React Flow",
+        icon: <ReactFlowIcon className="icon_reactflow" />,
+        isIcon: true,
+      },
+      {
+        name: "PostgreSQL",
+        icon: <PostgresIcon className="icon_postgresql" />,
+        isIcon: true,
+      },
       { name: "Ramda", icon: RamdaIcon, isIcon: false },
       {
         name: "Firebase",
@@ -184,6 +237,27 @@ const CATEGORIES = [
       {
         name: "Vitest",
         icon: <VitestIcon className="icon_vitest" />,
+        isIcon: true,
+      },
+    ],
+  },
+  {
+    id: "architecture",
+    label: "Architecture",
+    technologies: [
+      {
+        name: "Microfrontends",
+        icon: <MicrofrontendIcon className="icon_architecture" />,
+        isIcon: true,
+      },
+      {
+        name: "Monorepo",
+        icon: <MonorepoIcon className="icon_architecture" />,
+        isIcon: true,
+      },
+      {
+        name: "Design Patterns",
+        icon: <PatternsIcon className="icon_architecture" />,
         isIcon: true,
       },
     ],
@@ -304,7 +378,102 @@ const TechStack = () => {
   const [showFade, setShowFade] = useState(false);
   const containerRef = useRef(null);
   const gridRef = useRef(null);
+  const tabsRef = useRef(null);
   const hasFiredRef = useRef(false);
+
+  const [loop, setLoop] = useState(false);
+
+  // Carrusel infinito: si los tabs no caben, se renderizan 3 copias y el scroll
+  // se recoloca en la copia central al acercarse a un extremo, así nunca termina.
+  useEffect(() => {
+    const el = tabsRef.current;
+    if (!el) return;
+    let timeout;
+
+    const setWidth = () => {
+      const first = el.querySelector('[data-set="1"]');
+      const base = el.querySelector('[data-set="0"]');
+      return first && base ? first.offsetLeft - base.offsetLeft : 0;
+    };
+
+    const measure = () => {
+      const single = loop ? setWidth() : el.scrollWidth;
+      setLoop(single > el.clientWidth);
+    };
+
+    const onResize = () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(measure, 150);
+    };
+
+    measure();
+    window.addEventListener("resize", onResize);
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [loop]);
+
+  useEffect(() => {
+    const el = tabsRef.current;
+    if (!el || !loop) return;
+
+    const getSetWidth = () =>
+      el.querySelector('[data-set="1"]').offsetLeft -
+      el.querySelector('[data-set="0"]').offsetLeft;
+
+    el.scrollLeft = getSetWidth();
+
+    // Desplazamiento suave: la rueda mueve un objetivo y el scroll lo alcanza con easing
+    const SPEED = 0.45;
+    const EASE = 0.06;
+    let target = el.scrollLeft;
+    let current = el.scrollLeft;
+    let frame = null;
+
+    const wrap = () => {
+      const w = getSetWidth();
+      if (current < w * 0.5) {
+        current += w;
+        target += w;
+      } else if (current > w * 1.5) {
+        current -= w;
+        target -= w;
+      }
+    };
+
+    const tick = () => {
+      current += (target - current) * EASE;
+      wrap();
+      el.scrollLeft = current;
+      frame = Math.abs(target - current) > 0.5 ? requestAnimationFrame(tick) : null;
+    };
+
+    // React registra wheel como passive: listener nativo para poder hacer preventDefault
+    const onWheel = (e) => {
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+      e.preventDefault();
+      if (!frame) current = target = el.scrollLeft;
+      target += e.deltaY * SPEED;
+      if (!frame) frame = requestAnimationFrame(tick);
+    };
+
+    // Scroll nativo (trackpad horizontal o táctil): solo recolocar en la copia central
+    const onScroll = () => {
+      if (frame) return;
+      const w = getSetWidth();
+      if (el.scrollLeft < w * 0.5) el.scrollLeft += w;
+      else if (el.scrollLeft > w * 1.5) el.scrollLeft -= w;
+    };
+
+    el.addEventListener("scroll", onScroll, { passive: true });
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => {
+      cancelAnimationFrame(frame);
+      el.removeEventListener("scroll", onScroll);
+      el.removeEventListener("wheel", onWheel);
+    };
+  }, [loop]);
 
   // Solo recalcula al cambiar de tab o al redimensionar (debounced).
   // No corre en scroll, así no hay reflow durante el scroll del grid.
@@ -367,16 +536,22 @@ const TechStack = () => {
   return (
     <div className="techstack" ref={containerRef}>
       {/* Tabs */}
-      <div className="techstack__tabs">
-        {CATEGORIES.map((cat) => (
-          <button
-            key={cat.id}
-            className={`techstack__tab${activeId === cat.id ? " techstack__tab--active" : ""}`}
-            onClick={() => handleTab(cat.id)}
-          >
-            {cat.label}
-          </button>
-        ))}
+      <div className="techstack__tabs" ref={tabsRef}>
+        {(loop ? [0, 1, 2] : [1]).flatMap((set) =>
+          CATEGORIES.map((cat, i) => (
+            <button
+              key={`${set}-${cat.id}`}
+              data-set={i === 0 ? (loop ? set : 0) : undefined}
+              className={`techstack__tab${activeId === cat.id ? " techstack__tab--active" : ""}`}
+              onClick={() => handleTab(cat.id)}
+              // Las copias del carrusel no entran en el orden de tabulación ni en lectores de pantalla
+              tabIndex={set === 1 ? undefined : -1}
+              aria-hidden={set === 1 ? undefined : true}
+            >
+              {cat.label}
+            </button>
+          )),
+        )}
       </div>
 
       {/* Grid */}

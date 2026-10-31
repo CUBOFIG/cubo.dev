@@ -81,11 +81,12 @@ export default function Home() {
             content={TechStack}
           />
           <BaseSection
+            id="experience"
             title={{ ft: "My", st: "Experience" }}
             description="myexperience"
             content={ExperienceList}
           />
-          <BaseSection title={{ st: "Contact Me" }} content={ContactForm} />
+          <BaseSection id="contact" title={{ st: "Contact Me" }} content={ContactForm} />
           <SocialNetwork />
         </section>
 
