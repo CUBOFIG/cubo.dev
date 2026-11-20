@@ -1,5 +1,7 @@
 import dynamic from "next/dynamic";
-import { BaseSection, Hero, ScrollButton } from "@/components";
+import BaseSection from "@/components/BaseSection/BaseSection";
+import Hero from "@/components/Hero/Hero";
+import ScrollButton from "@/components/ScrollButton/ScrollButton";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 

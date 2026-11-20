@@ -1,8 +1,0 @@
-export { default as ButtonGrid } from "./Buttons/ButtonGrid";
-export { default as Header } from "./Header/Header";
-export { default as Hero } from "./Hero/Hero";
-export { default as Dropdown } from "./Dropdown/Dropdown";
-export { default as BaseSection } from "./BaseSection/BaseSection";
-export { default as ScrollButton } from "./ScrollButton/ScrollButton";
-export { default as ExperienceList } from "./ExperienceList/ExperienceList";
-export { default as TechStack } from "./TechStack/TechStack";

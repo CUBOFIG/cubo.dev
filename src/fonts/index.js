@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { Bowlby_One, Bricolage_Grotesque, Inter, JetBrains_Mono } from "next/font/google";
+import { Bowlby_One, Bricolage_Grotesque, Inter } from "next/font/google";
 
 export const arimo = localFont({
   src: "./Arimo.woff2",
@@ -9,18 +9,13 @@ export const arimo = localFont({
   variable: "--font-arimo",
 });
 
+// Solo se usa en el blog: no se precarga en todas las rutas
 export const cube = localFont({
   src: "./cube.woff2",
   display: "swap",
+  preload: false,
   fallback: ["sans-serif"],
   variable: "--font-cube",
-});
-
-export const funkturm = localFont({
-  src: "./Funkturm.woff2",
-  display: "swap",
-  fallback: ["sans-serif"],
-  variable: "--font-funkturm",
 });
 
 export const bowlby = Bowlby_One({
@@ -29,22 +24,16 @@ export const bowlby = Bowlby_One({
   display: "swap",
 });
 
-// Fuente variable: incluye pesos 400–700 y el eje óptico (12–96)
+// Fuente variable: incluye pesos 200–800 (sin eje óptico para reducir el peso)
 export const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  axes: ["opsz"],
   display: "swap",
 });
 
-export const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  display: "swap",
-});
-
-// Fuente de las tarjetas de "What People Say"
+// Fuente de las tarjetas de "What People Say" (debajo del fold: no se precarga)
 export const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
   display: "swap",
+  preload: false,
 });
