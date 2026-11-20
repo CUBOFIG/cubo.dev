@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { Bowlby_One, Bricolage_Grotesque, JetBrains_Mono } from "next/font/google";
+import { Bowlby_One, Bricolage_Grotesque, Inter, JetBrains_Mono } from "next/font/google";
 
 export const arimo = localFont({
   src: "./Arimo.woff2",
@@ -39,5 +39,12 @@ export const bricolage = Bricolage_Grotesque({
 export const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
+  display: "swap",
+});
+
+// Fuente de las tarjetas de "What People Say"
+export const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
   display: "swap",
 });

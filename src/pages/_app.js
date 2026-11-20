@@ -2,7 +2,7 @@ import "../sass/main.scss";
 import { appWithTranslation } from "next-i18next";
 import { ThemeProvider } from "next-themes";
 import { Header } from "@/components";
-import { arimo, cube, funkturm, bowlby, bricolage, jetbrains } from "../fonts";
+import { arimo, cube, funkturm, bowlby, bricolage, jetbrains, inter } from "../fonts";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -15,6 +15,7 @@ function MyApp({ Component, pageProps }) {
           --font-bowlby: ${bowlby.style.fontFamily};
           --font-bricolage: ${bricolage.style.fontFamily};
           --font-jetbrains: ${jetbrains.style.fontFamily};
+          --font-inter: ${inter.style.fontFamily};
         }
       `}</style>
       <Header />
