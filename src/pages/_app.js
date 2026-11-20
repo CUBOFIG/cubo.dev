@@ -1,8 +1,8 @@
 import "../sass/main.scss";
 import { appWithTranslation } from "next-i18next";
 import { ThemeProvider } from "next-themes";
-import { Header } from "@/components";
-import { arimo, cube, funkturm, bowlby, bricolage, jetbrains } from "../fonts";
+import Header from "@/components/Header/Header";
+import { arimo, cube, bowlby, bricolage, inter } from "../fonts";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -11,10 +11,9 @@ function MyApp({ Component, pageProps }) {
         :root {
           --font-arimo: ${arimo.style.fontFamily};
           --font-cube: ${cube.style.fontFamily};
-          --font-funkturm: ${funkturm.style.fontFamily};
           --font-bowlby: ${bowlby.style.fontFamily};
           --font-bricolage: ${bricolage.style.fontFamily};
-          --font-jetbrains: ${jetbrains.style.fontFamily};
+          --font-inter: ${inter.style.fontFamily};
         }
       `}</style>
       <Header />

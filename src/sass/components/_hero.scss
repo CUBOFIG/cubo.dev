@@ -57,7 +57,7 @@ $hero-coral: #ef5b4f;
   &__greeting {
     display: block;
     text-align: left;
-    font: 500 clamp(12px, 1vw, 18px) var(--font-jetbrains), monospace;
+    font: 500 clamp(12px, 1vw, 18px) ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
   }
 
   // Glitch original: 3 capas apiladas, se activa cada 5s y en hover

@@ -1,5 +1,7 @@
 import dynamic from "next/dynamic";
-import { BaseSection, Hero, ScrollButton } from "@/components";
+import BaseSection from "@/components/BaseSection/BaseSection";
+import Hero from "@/components/Hero/Hero";
+import ScrollButton from "@/components/ScrollButton/ScrollButton";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 
@@ -12,6 +14,9 @@ const SocialNetwork = dynamic(
 );
 const ContactForm = dynamic(
   () => import("@/components/ContactForm/ContactForm"),
+);
+const Testimonials = dynamic(
+  () => import("@/components/Testimonials/Testimonials"),
 );
 
 export async function getStaticProps() {
@@ -85,6 +90,11 @@ export default function Home() {
             title={{ ft: "My", st: "Experience" }}
             description="myexperience"
             content={ExperienceList}
+          />
+          <BaseSection
+            id="testimonials"
+            title={{ ft: "What", st: "People Say" }}
+            content={Testimonials}
           />
           <BaseSection id="contact" title={{ st: "Contact Me" }} content={ContactForm} />
           <SocialNetwork />

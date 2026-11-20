@@ -51,7 +51,7 @@ const ExperienceList = () => {
                     src={image}
                     alt={name}
                     className="chat-logo"
-                    priority
+                    sizes="60px"
                   />
                   <div className="d-flex flex-direction-column">
                     <div className="textos">

@@ -1,0 +1,385 @@
+// ─── What People Say (testimonios) ───────────────────────────────────────────
+// Mobile first; desde "small" (767px) pasa a dos columnas con las medidas de escritorio.
+
+// Variables registradas: la animación de los chips mueve estas variables y no
+// `transform` directo, para que el texto girado no se vea borroso.
+@property --t-x {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --t-y {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --t-r {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.testimonials {
+  --t-ink: #{$text-color};
+  --t-muted: #55524c;
+  --t-card: #fff;
+  --t-line: #e3e3e0;
+  --t-line-soft: #efefec;
+  --t-link-hover: #e0584b;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  margin-bottom: 1rem;
+  font-family: var(--font-inter), system-ui, sans-serif;
+
+  @include respond-to("small") {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  &:not(.is-visible) .testimonial__chip {
+    animation-play-state: paused;
+  }
+}
+
+.testimonial {
+  --t-soft: #f8c9d8;
+  --t-accent: #f48fb1;
+  --t-hover: #c93a74;
+  --t-mark: var(--t-soft);
+  --t-glow: var(--t-soft);
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 20px;
+  background: var(--t-card);
+  border: 1px solid var(--t-line);
+  border-radius: 10px;
+  color: var(--t-ink);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
+  @include respond-to("small") {
+    gap: 22px;
+    padding: 28px;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 4px 4px 0 var(--t-ink);
+    }
+  }
+
+  &--blue {
+    --t-soft: #bcd0ee;
+    --t-accent: #7ea3d8;
+    --t-hover: #4a73b8;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    @include respond-to("small") {
+      gap: 16px;
+    }
+  }
+
+  &__qmark {
+    display: block;
+    font-family: var(--font-bowlby), sans-serif;
+    font-size: 40px;
+    line-height: 0.6;
+    color: var(--t-accent);
+
+    @include respond-to("small") {
+      font-size: 48px;
+    }
+  }
+
+  // ─── Chips animados ───
+  &__chips {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+
+    @include respond-to("small") {
+      gap: 8px;
+    }
+  }
+
+  &__chip {
+    padding: 6px 12px;
+    border: 1.5px solid var(--t-ink);
+    border-radius: 999px;
+    background: var(--t-card);
+    color: var(--t-ink);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+    transform: translate(var(--t-x), var(--t-y)) rotate(var(--t-r));
+    animation:
+      testimonial-chip-in 0.55s cubic-bezier(0.2, 0.8, 0.2, 1.2) backwards,
+      testimonial-chip-glow 7.2s ease-in-out infinite;
+    animation-delay:
+      calc(0.15s + var(--i, 0) * 0.09s),
+      calc(1.4s + var(--i, 0) * 1.2s);
+
+    @include respond-to("small") {
+      padding: 7px 14px;
+      font-size: 14px;
+    }
+  }
+
+  // ─── Testimonio completo (Read more) ───
+  &__full {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  &__full-inner {
+    overflow: hidden;
+    min-height: 0;
+    visibility: hidden;
+    transition: visibility 0.45s;
+  }
+
+  &.is-open &__full {
+    grid-template-rows: 1fr;
+  }
+
+  &.is-open &__full-inner {
+    visibility: visible;
+  }
+
+  &__quote {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--t-ink);
+
+    p {
+      margin: 0;
+      text-wrap: pretty;
+    }
+
+    p + p {
+      margin-top: 1.6em;
+    }
+
+    mark {
+      color: inherit;
+      padding: 0;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      background: linear-gradient(var(--t-mark), var(--t-mark)) no-repeat 0
+        90% / 0% 50%;
+      transition: background-size 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s;
+    }
+
+    @include respond-to("small") {
+      font-size: 17px;
+      line-height: 1.65;
+
+      p + p {
+        margin-top: 1.65em;
+      }
+    }
+  }
+
+  &.is-open &__quote mark {
+    background-size: 100% 50%;
+  }
+
+  &__toggle {
+    align-self: flex-start;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--t-ink);
+    font: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--t-link-hover);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--t-ink);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    @include respond-to("small") {
+      min-height: 0;
+      font-size: 14px;
+    }
+  }
+
+  &__toggle-label {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1.5px;
+  }
+
+  &__chev {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  &.is-open &__chev {
+    transform: rotate(180deg);
+  }
+
+  // ─── Autora ───
+  &__author {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid var(--t-line-soft);
+
+    @include respond-to("small") {
+      gap: 14px;
+      padding-top: 18px;
+    }
+  }
+
+  &__photo {
+    display: block;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px var(--t-soft);
+    transition: box-shadow 0.2s ease;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    @include respond-to("small") {
+      width: 48px;
+      height: 48px;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        box-shadow: 0 0 0 3px var(--t-ink);
+      }
+    }
+  }
+
+  &__who {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  &__name {
+    align-self: flex-start;
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    color: var(--t-ink);
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--t-hover);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--t-ink);
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+  }
+
+  &__arrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    transition: transform 0.2s ease;
+  }
+
+  &__name:hover &__arrow {
+    transform: translate(2px, -2px);
+  }
+
+  &__role {
+    font-size: 13px;
+    color: var(--t-muted);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial__chip {
+    animation: none;
+  }
+
+  .testimonial,
+  .testimonial__full,
+  .testimonial__full-inner,
+  .testimonial__quote mark,
+  .testimonial__chev,
+  .testimonial__arrow {
+    transition: none;
+  }
+}
+
+@keyframes testimonial-chip-in {
+  from {
+    opacity: 0;
+    --t-y: 10px;
+  }
+  to {
+    opacity: 1;
+    --t-y: 0px;
+  }
+}
+
+@keyframes testimonial-chip-glow {
+  0%,
+  20%,
+  100% {
+    background: var(--t-card);
+    box-shadow: 0 0 0 var(--t-ink);
+    --t-x: 0px;
+    --t-y: 0px;
+    --t-r: 0deg;
+  }
+  6%,
+  14% {
+    background: var(--t-glow);
+    box-shadow: 3px 3px 0 var(--t-ink);
+    --t-x: -2px;
+    --t-y: -2px;
+    --t-r: -2deg;
+  }
+}

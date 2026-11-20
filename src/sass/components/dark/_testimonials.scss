@@ -1,0 +1,23 @@
+.dark {
+  .testimonials {
+    --t-ink: #{$text-cdark};
+    --t-muted: #bdb9b1;
+    --t-card: #3b3937;
+    --t-line: #4d4a47;
+    --t-line-soft: #474542;
+    --t-link-hover: #f08a7a;
+  }
+
+  // En oscuro el marcador y el brillo de los chips van translúcidos
+  // para que el texto claro siga leyéndose.
+  .testimonial {
+    --t-mark: rgba(248, 201, 216, 0.3);
+    --t-glow: var(--t-mark);
+    --t-hover: #f48fb1;
+  }
+
+  .testimonial--blue {
+    --t-mark: rgba(188, 208, 238, 0.3);
+    --t-hover: #8fb0e0;
+  }
+}
